@@ -64,13 +64,13 @@ export default function TeamShowcase() {
         );
       })}
 
-      <Box sx={{ position: 'absolute', left: { xs: '30%', sm: '37%' }, top: '43%', zIndex: 8, bgcolor: 'primary.main', color: '#fff', borderRadius: 3, p: { xs: 1.55, sm: 2.1 }, width: { xs: 178, sm: 200 }, boxShadow: '0 12px 30px rgba(21,94,239,0.3)' }}>
-        <Typography variant="caption" sx={{ color: '#EAF0FF', fontWeight: 800, letterSpacing: '0.03em' }}>MEET THE TEAM · 7 MEMBERS</Typography>
-        <Typography sx={{ fontWeight: 900, fontSize: { xs: '1.12rem', sm: '1.3rem' }, mt: 0.25 }}>PNC Team</Typography>
-        <Typography variant="caption" sx={{ color: '#EAF0FF' }}>A rotating member showcase</Typography>
+      <Box sx={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 8, width: { xs: 126, sm: 144 }, textAlign: 'center', bgcolor: 'primary.main', color: '#FFFFFF', borderRadius: '12px', p: { xs: 0.9, sm: 1.1 }, boxShadow: '0 6px 18px rgba(21,94,239,0.16)' }}>
+        <Typography variant="caption" sx={{ display: 'block', color: '#EAF0FF', fontSize: '9px', fontWeight: 700, letterSpacing: '0.04em', lineHeight: 1.35 }}>MEET THE TEAM · 7 MEMBERS</Typography>
+        <Typography variant="h6" sx={{ color: '#FFFFFF', fontSize: { xs: '14px', sm: '15px' }, fontWeight: 700, lineHeight: 1.2, mt: 0.35 }}>PNC Team</Typography>
+        <Typography variant="caption" sx={{ display: 'block', color: '#EAF0FF', fontSize: '9px', lineHeight: 1.3, mt: 0.3 }}>A rotating member showcase</Typography>
       </Box>
 
-      <Chip label={`${startingMember + 1} / ${teamMembers.length}`} size="small" sx={{ position: 'absolute', bottom: { xs: '0%', sm: '1%' }, left: '50%', transform: 'translateX(-50%)', zIndex: 9, bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', fontWeight: 800 }} />
+      <Chip label={`${startingMember + 1} / ${teamMembers.length}`} size="small" sx={{ position: 'absolute', bottom: { xs: '0%', sm: '1%' }, left: '50%', transform: 'translateX(-50%)', zIndex: 9, bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', fontWeight: 700 }} />
     </Box>
   );
 }
