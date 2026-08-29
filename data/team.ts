@@ -412,7 +412,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Leader Din',
     role: 'Junior Roaming & Interconnection Administrator',
     shortRole: 'Roaming & Interconnect',
-    photo: '/team/leader-din.png',
+    photo: '/team/leader-din.jpg',
     focus: 'Roaming operations, infrastructure automation, deployment and internal systems.',
     summary:
       'A technology professional focused on infrastructure, roaming and interconnection operations. His experience includes CRM development, CN/DN automation, TAP file processing, operational dashboards, roaming service validation and modern deployment tooling.',

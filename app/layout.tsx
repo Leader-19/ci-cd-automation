@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
+import { Public_Sans } from 'next/font/google';
 import Providers from '@/components/Providers';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+const publicSans = Public_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-public-sans',
+  weight: ['400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -21,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={publicSans.variable}>
       <body>
         <Providers>
           <SiteHeader />

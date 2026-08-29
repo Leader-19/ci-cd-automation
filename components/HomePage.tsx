@@ -20,15 +20,15 @@ import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import BugReportRoundedIcon from '@mui/icons-material/BugReportRounded';
 import RouteRoundedIcon from '@mui/icons-material/RouteRounded';
 import RouterRoundedIcon from '@mui/icons-material/RouterRounded';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import IntroSplash from './IntroSplash';
 import { Reveal } from './Motion';
+import TeamShowcase from './TeamShowcase';
+import TechnologyTicker from './TechnologyTicker';
 import SectionHeading from './SectionHeading';
 import TeamCard from './TeamCard';
 import ProjectCard from './ProjectCard';
-import { TechnologyBadge } from './TechIcon';
 import { teamMembers } from '@/data/team';
 import { projects } from '@/data/projects';
 
@@ -56,16 +56,16 @@ export default function HomePage() {
     <>
       {!introDone && <IntroSplash onComplete={() => setIntroDone(true)} />}
 
-      <Box component="section" sx={{ pt: { xs: 6, md: 9 }, pb: { xs: 8, md: 11 }, bgcolor: 'background.default', overflow: 'hidden' }}>
+      <Box component="section" sx={{ pt: { xs: 5, md: 8 }, pb: { xs: 7, md: 10 }, bgcolor: 'background.default', overflow: 'hidden' }}>
         <Container maxWidth="xl">
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', lg: 'minmax(0, 1.08fr) minmax(460px, 0.92fr)' }, gap: { xs: 5, lg: 7 }, alignItems: 'center' }}>
             <Reveal>
               <Stack alignItems="flex-start">
                 <Chip label="PNC STUDENT TECHNOLOGY TEAM" color="primary" variant="outlined" sx={{ mb: 2.5, fontWeight: 800 }} />
-                <Typography variant="h1" sx={{ fontSize: { xs: '3rem', sm: '4.25rem', lg: '5.6rem' }, maxWidth: 840 }}>
+                <Typography variant="h1" sx={{ maxWidth: 640 }}>
                   We learn by building <Box component="span" sx={{ color: 'primary.main' }}>real technology.</Box>
                 </Typography>
-                <Typography sx={{ color: 'text.secondary', fontSize: { xs: '1.06rem', md: '1.2rem' }, lineHeight: 1.8, maxWidth: 720, mt: 2.5 }}>
+                <Typography color="text.secondary" sx={{ fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, maxWidth: 560, mt: 2 }}>
                   Meet seven PNC student professionals across full-stack development, web engineering, quality assurance, planning, data and roaming & interconnection.
                 </Typography>
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.4} sx={{ mt: 3.6, width: { xs: '100%', sm: 'auto' } }}>
@@ -85,24 +85,15 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <Box sx={{ position: 'relative', height: { xs: 520, sm: 610 }, maxWidth: 620, mx: 'auto', width: '100%' }}>
-                <Box sx={{ position: 'absolute', inset: '6% 8% 2% 10%', border: '1px solid', borderColor: 'divider', borderRadius: 5, bgcolor: 'background.paper' }} />
-                {[
-                  { member: teamMembers[0], top: '3%', left: '4%', width: '42%', rotate: '-3deg' },
-                  { member: teamMembers[3], top: '9%', right: '3%', width: '39%', rotate: '3deg' },
-                  { member: teamMembers[5], bottom: '5%', left: '8%', width: '38%', rotate: '2deg' },
-                  { member: teamMembers[6], bottom: '1%', right: '6%', width: '39%', rotate: '-2deg' },
-                ].map(({ member, ...position }) => (
-                  <Box key={member.slug} sx={{ position: 'absolute', ...position, aspectRatio: '4 / 5', borderRadius: 3.5, overflow: 'hidden', border: '5px solid', borderColor: 'background.paper', boxShadow: '0 18px 44px rgba(16,24,40,0.16)', bgcolor: 'background.paper' }}>
-                    <Image src={member.photo} alt={`${member.name} - ${member.role}`} fill sizes="300px" style={{ objectFit: 'cover', objectPosition: 'center top' }} />
-                  </Box>
-                ))}
+              <TeamShowcase />
+              {/* Previous static collage retained here only as inactive reference.
                 <Box sx={{ position: 'absolute', left: '37%', top: '43%', zIndex: 4, bgcolor: 'primary.main', color: '#fff', borderRadius: 3, p: 2.1, width: 190, boxShadow: '0 12px 30px rgba(21,94,239,0.28)' }}>
                   <Typography variant="caption" sx={{ color: '#EAF0FF', fontWeight: 700 }}>BUILD • TEST • LEARN</Typography>
                   <Typography sx={{ fontWeight: 900, fontSize: '1.3rem', mt: 0.3 }}>PNC Team</Typography>
                   <Typography variant="caption" sx={{ color: '#EAF0FF' }}>Practical technology portfolio</Typography>
                 </Box>
               </Box>
+              */}
             </Reveal>
           </Box>
         </Container>
@@ -110,9 +101,7 @@ export default function HomePage() {
 
       <Box sx={{ bgcolor: 'background.paper', py: 2.2, borderBlock: '1px solid', borderColor: 'divider', overflow: 'hidden' }}>
         <Container maxWidth="xl">
-          <Stack direction="row" gap={1.1} flexWrap="wrap" justifyContent="center">
-            {techRail.map((tech) => <TechnologyBadge key={tech} name={tech} />)}
-          </Stack>
+          <TechnologyTicker technologies={techRail} />
         </Container>
       </Box>
 
@@ -128,7 +117,7 @@ export default function HomePage() {
             ['20+', 'Technologies & tools'],
           ].map(([number, label], index) => (
             <Reveal key={label} delay={index * 0.05}>
-              <Card><CardContent sx={{ p: { xs: 2.5, md: 3.5 } }}><Typography sx={{ fontSize: { xs: '2.4rem', md: '3.2rem' }, fontWeight: 900, color: 'primary.main' }}>{number}</Typography><Typography color="text.secondary" sx={{ mt: 0.5 }}>{label}</Typography></CardContent></Card>
+              <Card><CardContent sx={{ p: { xs: 2, md: 3 } }}><Typography sx={{ fontSize: { xs: '28px', md: '32px' }, fontWeight: 700, color: 'primary.main', lineHeight: 1.2 }}>{number}</Typography><Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>{label}</Typography></CardContent></Card>
             </Reveal>
           ))}
         </Box>
@@ -180,10 +169,10 @@ export default function HomePage() {
 
       <Container maxWidth="xl" sx={{ pb: { xs: 4, md: 8 } }}>
         <Reveal>
-          <Box sx={{ bgcolor: 'primary.main', color: '#fff', borderRadius: 4, p: { xs: 3.5, md: 6 }, display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr auto' }, alignItems: 'center', gap: 3 }}>
+          <Box sx={{ bgcolor: 'primary.main', color: '#fff', borderRadius: 2, p: { xs: 3, md: 5 }, display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr auto' }, alignItems: 'center', gap: 3 }}>
             <Box>
               <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}><CheckCircleRoundedIcon /><Typography variant="overline" sx={{ fontWeight: 800, letterSpacing: '0.12em' }}>READY TO EXPLORE</Typography></Stack>
-              <Typography variant="h3" sx={{ fontSize: { xs: '2rem', md: '3rem' }, maxWidth: 760 }}>See the people, skills and experiences behind the PNC student team.</Typography>
+              <Typography variant="h3" sx={{ maxWidth: 620 }}>See the people, skills and experiences behind the PNC student team.</Typography>
             </Box>
             <Button component={Link} href="/team" variant="contained" sx={{ bgcolor: '#FFFFFF', color: '#0F172A', '&:hover': { bgcolor: '#EEF3FF' } }} endIcon={<ArrowForwardRoundedIcon />}>Meet the Team</Button>
           </Box>

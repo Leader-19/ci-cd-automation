@@ -33,11 +33,11 @@ const journey = [
 export default function AboutPage() {
   return (
     <>
-      <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 7, md: 10 } }}>
+      <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 5, md: 7 } }}>
         <Container maxWidth="lg">
           <Chip label="ABOUT THE TEAM" color="primary" variant="outlined" sx={{ mb: 2 }} />
-          <Typography variant="h1" sx={{ fontSize: { xs: '2.8rem', md: '5rem' }, maxWidth: 960 }}>A student team turning learning into practical experience.</Typography>
-          <Typography color="text.secondary" sx={{ fontSize: { xs: '1.05rem', md: '1.2rem' }, lineHeight: 1.8, maxWidth: 820, mt: 2.5 }}>
+          <Typography variant="h1" sx={{ maxWidth: 760 }}>A student team turning learning into practical experience.</Typography>
+          <Typography color="text.secondary" sx={{ fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, maxWidth: 720, mt: 1.5 }}>
             We are a PNC student technology team with different professional directions but a shared commitment to learning by building, testing and improving real solutions.
           </Typography>
         </Container>

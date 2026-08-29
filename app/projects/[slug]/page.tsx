@@ -29,11 +29,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider' }}>
-        <Container maxWidth="xl" sx={{ py: { xs: 5, md: 8 } }}>
+        <Container maxWidth="xl" sx={{ py: { xs: 4, md: 6 } }}>
           <Button component={Link} href="/projects" variant="text" startIcon={<ArrowBackRoundedIcon />} sx={{ px: 0, mb: 3 }}>Back to Projects</Button>
           <Stack direction="row" gap={1} flexWrap="wrap" sx={{ mb: 2 }}><Chip label={project.category} color="primary" /><Chip label={project.status} variant="outlined" /><Chip label={project.period} variant="outlined" /></Stack>
-          <Typography variant="h1" sx={{ fontSize: { xs: '2.7rem', md: '5rem' }, maxWidth: 1050 }}>{project.title}</Typography>
-          <Typography color="text.secondary" sx={{ maxWidth: 860, fontSize: { xs: '1.05rem', md: '1.18rem' }, lineHeight: 1.8, mt: 2 }}>{project.summary}</Typography>
+          <Typography variant="h1" sx={{ maxWidth: 840 }}>{project.title}</Typography>
+          <Typography color="text.secondary" sx={{ maxWidth: 760, fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, mt: 1.5 }}>{project.summary}</Typography>
           <Stack direction="row" spacing={2} alignItems="center" sx={{ mt: 3 }}>
             <AvatarGroup max={5}>{members.map((member) => member ? <Avatar key={member.slug} src={member.photo} alt={member.name} /> : null)}</AvatarGroup>
             <Box><Typography variant="caption" color="text.secondary">PROFILE SOURCE</Typography><Typography fontWeight={800}>{project.owner}</Typography></Box>

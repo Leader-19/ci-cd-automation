@@ -11,16 +11,16 @@ import type { TeamMember } from '@/data/team';
 export default function TeamCard({ member }: { member: TeamMember }) {
   const reduce = useReducedMotion();
   return (
-    <motion.div whileHover={reduce ? undefined : { y: -4 }} transition={{ duration: 0.18 }} style={{ height: '100%' }}>
-      <Card sx={{ height: '100%', overflow: 'hidden', transition: 'box-shadow 180ms ease', '&:hover': { boxShadow: '0 12px 30px rgba(16,24,40,0.09)' } }}>
+    <motion.div whileHover={reduce ? undefined : { y: -3 }} transition={{ duration: 0.18 }} style={{ height: '100%' }}>
+      <Card sx={{ height: '100%', overflow: 'hidden', transition: 'box-shadow 180ms ease', '&:hover': { boxShadow: '0 6px 18px rgba(16,24,40,0.08)' } }}>
         <Box sx={{ position: 'relative', aspectRatio: '4 / 4.6', bgcolor: 'action.hover', overflow: 'hidden' }}>
           <Image src={member.photo} alt={`${member.name} - ${member.role}`} fill sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 25vw" style={{ objectFit: 'cover', objectPosition: 'center top', transition: 'transform 220ms ease' }} />
           <Chip label={member.shortRole} size="small" sx={{ position: 'absolute', top: 14, left: 14, bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider' }} />
         </Box>
-        <CardContent sx={{ p: 2.5 }}>
+        <CardContent sx={{ p: { xs: 2, md: 2.5 } }}>
           <Typography variant="h5" sx={{ fontWeight: 800 }}>{member.name}</Typography>
           <Typography color="primary.main" sx={{ fontWeight: 750, mt: 0.3 }}>{member.role}</Typography>
-          <Typography color="text.secondary" sx={{ mt: 1.3, lineHeight: 1.65, minHeight: 78 }}>{member.focus}</Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 1.1, minHeight: { sm: 62, lg: 78 } }}>{member.focus}</Typography>
           <Stack direction="row" spacing={1} sx={{ mt: 2.2 }}>
             <Button component={Link} href={`/team/${member.slug}`} variant="contained" size="small" endIcon={<ArrowForwardRoundedIcon />} sx={{ flex: 1 }}>View Profile</Button>
             {member.cv && (

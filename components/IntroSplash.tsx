@@ -63,13 +63,14 @@ export default function IntroSplash({ onComplete }: { onComplete: () => void }) 
 
           <Box sx={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', p: { xs: 2.5, md: 5 } }}>
             <Stack direction="row" justifyContent="space-between" alignItems="center">
-              <Stack direction="row" spacing={1.2} alignItems="center">
-                <Box sx={{ width: 42, height: 42, display: 'grid', placeItems: 'center', bgcolor: '#155EEF', borderRadius: 2, color: '#fff', fontWeight: 900 }}>PNC</Box>
-                <Box>
-                  <Typography sx={{ color: '#FFFFFF', fontWeight: 800, letterSpacing: '-0.02em' }}>STUDENT TEAM</Typography>
-                  <Typography variant="caption" sx={{ color: '#A7B0BE' }}>Technology Portfolio</Typography>
-                </Box>
-              </Stack>
+              <Box sx={{ width: { xs: 154, sm: 184 }, height: { xs: 42, sm: 50 }, overflow: 'hidden', flexShrink: 0 }}>
+                <Box
+                  component="img"
+                  src="/logo/logo-removebg.png"
+                  alt="PNC Team — Student Tech Portfolio"
+                  sx={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+                />
+              </Box>
               <Button onClick={finish} variant="outlined" endIcon={<SkipNextRoundedIcon />} sx={{ color: '#fff', borderColor: '#5F6B78', bgcolor: 'rgba(2,7,13,0.66)', '&:hover': { borderColor: '#FFFFFF', bgcolor: '#101820' } }}>
                 Skip intro
               </Button>
@@ -78,7 +79,7 @@ export default function IntroSplash({ onComplete }: { onComplete: () => void }) 
             <Stack spacing={2.2} sx={{ width: '100%', maxWidth: 760, mx: 'auto', mb: { xs: 2, md: 3 } }}>
               <Box sx={{ p: { xs: 2, md: 2.5 }, borderRadius: 3, bgcolor: 'rgba(2,7,13,0.76)', border: '1px solid #27313A', backdropFilter: 'blur(10px)' }}>
                 <Typography variant="overline" sx={{ color: '#4EDBE0', letterSpacing: '0.14em', fontWeight: 800 }}>SYSTEM STARTUP</Typography>
-                <Typography variant="h4" sx={{ color: '#FFFFFF', mt: 0.6, fontSize: { xs: '1.45rem', md: '2rem' } }}>{label}</Typography>
+                <Typography variant="h4" sx={{ color: '#FFFFFF', mt: 0.6, fontSize: { xs: '16px', md: '18px' } }}>{label}</Typography>
                 <Stack direction="row" justifyContent="space-between" sx={{ mt: 2, mb: 0.8 }}>
                   <Typography variant="caption" sx={{ color: '#A7B0BE' }}>PNC team experience</Typography>
                   <Typography variant="caption" sx={{ color: '#A7B0BE' }}>{Math.round(progress)}%</Typography>

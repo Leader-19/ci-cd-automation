@@ -15,11 +15,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 7, md: 10 } }}>
+      <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 5, md: 7 } }}>
         <Container maxWidth="xl">
           <Typography variant="overline" color="primary.main" fontWeight={800}>CONTACT</Typography>
-          <Typography variant="h1" sx={{ fontSize: { xs: '2.8rem', md: '5rem' }, maxWidth: 900, mt: 1 }}>Let&apos;s connect, learn and build together.</Typography>
-          <Typography color="text.secondary" sx={{ maxWidth: 760, fontSize: { xs: '1rem', md: '1.16rem' }, lineHeight: 1.8, mt: 2 }}>Use the form for a general conversation, or open an individual member profile to contact the right person directly.</Typography>
+          <Typography variant="h1" sx={{ maxWidth: 720, mt: 1 }}>Let&apos;s connect, learn and build together.</Typography>
+          <Typography color="text.secondary" sx={{ maxWidth: 680, fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, mt: 1.5 }}>Use the form for a general conversation, or open an individual member profile to contact the right person directly.</Typography>
         </Container>
       </Box>
 

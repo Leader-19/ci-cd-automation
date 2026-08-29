@@ -45,7 +45,7 @@ export default function SiteHeader() {
     <>
       <AppBar position="sticky" elevation={0} color="transparent" sx={{ borderBottom: '1px solid', borderColor: 'divider', bgcolor: 'background.paper', zIndex: 1200 }}>
         <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ minHeight: { xs: 68, md: 76 } }}>
+          <Toolbar disableGutters sx={{ minHeight: { xs: 68, md: 72 } }}>
             <Box component={Link} href="/" aria-label="PNC Team home" sx={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
               <BrandLogo />
             </Box>
@@ -57,7 +57,36 @@ export default function SiteHeader() {
                   component={Link}
                   href={item.href}
                   color={active(item.href) ? 'primary' : 'inherit'}
-                  sx={{ minHeight: 40, px: 1.7, color: active(item.href) ? 'primary.main' : 'text.secondary', fontWeight: active(item.href) ? 800 : 650, bgcolor: active(item.href) ? 'action.hover' : 'transparent' }}
+                  sx={{
+                    minHeight: 44,
+                    px: 1.7,
+                    position: 'relative',
+                    overflow: 'visible',
+                    color: active(item.href) ? 'primary.main' : 'text.secondary',
+                    fontSize: '13.5px',
+                    fontWeight: active(item.href) ? 600 : 500,
+                    bgcolor: 'transparent',
+                    transition: 'color 180ms ease',
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      left: '50%',
+                      bottom: 3,
+                      width: 'calc(100% - 26px)',
+                      height: 2.5,
+                      borderRadius: 999,
+                      bgcolor: 'primary.main',
+                      transform: `translateX(-50%) scaleX(${active(item.href) ? 1 : 0})`,
+                      transformOrigin: 'center',
+                      opacity: active(item.href) ? 1 : 0,
+                      transition: 'transform 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease',
+                    },
+                    '&:hover': {
+                      color: 'primary.main',
+                      bgcolor: 'transparent',
+                      '&::after': { transform: 'translateX(-50%) scaleX(1)', opacity: 1 },
+                    },
+                  }}
                 >
                   {item.label}
                 </Button>
@@ -81,7 +110,7 @@ export default function SiteHeader() {
         </Container>
       </AppBar>
 
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)} PaperProps={{ sx: { width: 'min(88vw, 360px)' } }}>
+      <Drawer anchor="right" open={open} onClose={() => setOpen(false)} PaperProps={{ sx: { width: 'min(88vw, 280px)' } }}>
         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ p: 2.5, borderBottom: '1px solid', borderColor: 'divider' }}>
           <BrandLogo sx={{ width: 164, height: 43 }} />
           <IconButton onClick={() => setOpen(false)} aria-label="Close navigation"><CloseRoundedIcon /></IconButton>

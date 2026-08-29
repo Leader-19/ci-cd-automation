@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 7, md: 10 } }}>
+      <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 5, md: 7 } }}>
         <Container maxWidth="xl">
           <Typography variant="overline" color="primary.main" fontWeight={800}>PROJECTS & EXPERIENCE</Typography>
-          <Typography variant="h1" sx={{ fontSize: { xs: '2.8rem', md: '5rem' }, maxWidth: 980, mt: 1 }}>Work that turns learning into evidence.</Typography>
-          <Typography color="text.secondary" sx={{ maxWidth: 820, fontSize: { xs: '1rem', md: '1.16rem' }, lineHeight: 1.8, mt: 2 }}>{projects.length} curated case studies combine professional experience, internships and academic projects documented in the team CV pack.</Typography>
+          <Typography variant="h1" sx={{ maxWidth: 720, mt: 1 }}>Work that turns learning into evidence.</Typography>
+          <Typography color="text.secondary" sx={{ maxWidth: 700, fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, mt: 1.5 }}>{projects.length} curated case studies combine professional experience, internships and academic projects documented in the team CV pack.</Typography>
         </Container>
       </Box>
       <Container maxWidth="xl" sx={{ py: { xs: 7, md: 10 } }}>

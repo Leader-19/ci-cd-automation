@@ -22,11 +22,11 @@ const icons = [CodeRoundedIcon, BugReportRoundedIcon, RouteRoundedIcon, StorageR
 export default function ExpertisePage() {
   return (
     <>
-      <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 7, md: 10 } }}>
+      <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 5, md: 7 } }}>
         <Container maxWidth="xl">
           <Typography variant="overline" color="primary.main" fontWeight={800}>EXPERTISE</Typography>
-          <Typography variant="h1" sx={{ fontSize: { xs: '2.8rem', md: '5rem' }, maxWidth: 980, mt: 1 }}>Skills connected to practical work.</Typography>
-          <Typography color="text.secondary" sx={{ maxWidth: 780, fontSize: { xs: '1rem', md: '1.16rem' }, lineHeight: 1.8, mt: 2 }}>We avoid fake percentage ratings. Instead, the site shows focus areas, tools actually documented in CVs and the people connected to each area.</Typography>
+          <Typography variant="h1" sx={{ maxWidth: 720, mt: 1 }}>Skills connected to practical work.</Typography>
+          <Typography color="text.secondary" sx={{ maxWidth: 700, fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, mt: 1.5 }}>We avoid fake percentage ratings. Instead, the site shows focus areas, tools actually documented in CVs and the people connected to each area.</Typography>
         </Container>
       </Box>
 

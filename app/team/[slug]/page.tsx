@@ -63,20 +63,20 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
   return (
     <>
       <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider' }}>
-        <Container maxWidth="xl" sx={{ py: { xs: 5, md: 7 } }}>
+        <Container maxWidth="xl" sx={{ py: { xs: 4, md: 6 } }}>
           <Button component={Link} href="/team" variant="text" startIcon={<ArrowBackRoundedIcon />} sx={{ px: 0, mb: 3 }}>Back to Team</Button>
-          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '320px minmax(0, 1fr)' }, gap: { xs: 3, md: 5 }, alignItems: 'center' }}>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '300px minmax(0, 1fr)' }, gap: { xs: 3, md: 5 }, alignItems: 'center' }}>
             <Reveal>
-              <Box sx={{ position: 'relative', width: '100%', maxWidth: 320, aspectRatio: '4 / 4.7', borderRadius: 4, overflow: 'hidden', border: '1px solid', borderColor: 'divider', bgcolor: 'action.hover' }}>
-                <Image src={member.photo} alt={`${member.name} - ${member.role}`} fill sizes="(max-width: 900px) 100vw, 320px" style={{ objectFit: 'cover', objectPosition: 'center top' }} />
+              <Box sx={{ position: 'relative', width: '100%', maxWidth: 300, aspectRatio: '4 / 5', borderRadius: 2, overflow: 'hidden', border: '1px solid', borderColor: 'divider', bgcolor: 'action.hover', mx: { xs: 'auto', md: 0 } }}>
+                <Image src={member.photo} alt={`${member.name} - ${member.role}`} fill sizes="(max-width: 900px) 100vw, 300px" style={{ objectFit: 'cover', objectPosition: 'center top' }} />
               </Box>
             </Reveal>
             <Reveal delay={0.05}>
               <Box>
                 <Chip label="PNC STUDENT TEAM" color="primary" variant="outlined" sx={{ mb: 1.8 }} />
-                <Typography variant="h1" sx={{ fontSize: { xs: '2.7rem', md: '4.5rem' } }}>{member.name}</Typography>
+                <Typography variant="h1">{member.name}</Typography>
                 <Typography variant="h4" color="primary.main" sx={{ fontWeight: 800, mt: 0.7 }}>{member.role}</Typography>
-                <Typography color="text.secondary" sx={{ fontSize: { xs: '1rem', md: '1.12rem' }, lineHeight: 1.8, maxWidth: 820, mt: 2 }}>{member.focus}</Typography>
+                <Typography color="text.secondary" sx={{ fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, maxWidth: 720, mt: 1.5 }}>{member.focus}</Typography>
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2} flexWrap="wrap" sx={{ mt: 3 }}>
                   {member.cv && <Button component="a" href={member.cv} download variant="contained" startIcon={<DownloadRoundedIcon />}>Download CV</Button>}
                   {member.cv && <Button component="a" href={member.cv} target="_blank" rel="noreferrer" variant="outlined" startIcon={<OpenInNewRoundedIcon />}>Open CV</Button>}
