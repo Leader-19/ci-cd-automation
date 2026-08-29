@@ -4,11 +4,13 @@ import { Box, Chip, Stack } from '@mui/material';
 import { useMemo, useState } from 'react';
 import { teamMembers } from '@/data/team';
 import TeamCard from './TeamCard';
+import { useLocale } from './Providers';
 
 const filters = ['All', 'Development', 'QA', 'Planning', 'Infrastructure'];
 
 export default function TeamGrid() {
   const [filter, setFilter] = useState('All');
+  const { locale } = useLocale();
   const members = useMemo(() => teamMembers.filter((member) => {
     if (filter === 'All') return true;
     if (filter === 'Development') return /Developer|Full Stack/.test(member.role);
@@ -21,7 +23,7 @@ export default function TeamGrid() {
   return (
     <>
       <Stack direction="row" gap={1} flexWrap="wrap" sx={{ mb: 3.5 }}>
-        {filters.map((item) => <Chip key={item} label={item} clickable color={filter === item ? 'primary' : 'default'} variant={filter === item ? 'filled' : 'outlined'} onClick={() => setFilter(item)} />)}
+        {filters.map((item) => <Chip key={item} label={locale === 'km' ? ({ All: 'ទាំងអស់', Development: 'ការអភិវឌ្ឍ', QA: 'QA', Planning: 'ការរៀបចំផែនការ', Infrastructure: 'ហេដ្ឋារចនាសម្ព័ន្ធ' }[item] || item) : item} clickable color={filter === item ? 'primary' : 'default'} variant={filter === item ? 'filled' : 'outlined'} onClick={() => setFilter(item)} />)}
       </Stack>
       <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }, gap: 2.5 }}>
         {members.map((member) => <TeamCard key={member.slug} member={member} />)}

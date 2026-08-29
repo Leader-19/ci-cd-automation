@@ -17,6 +17,8 @@ const LocaleContext = createContext({
   switchLocale: (_locale: Locale) => {},
 });
 
+const colorModeStorageKey = 'pnc-team-color-mode';
+
 export function useColorMode() {
   return useContext(ModeContext);
 }
@@ -30,11 +32,23 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   const [locale, setLocale] = useState<Locale>('en');
 
   useEffect(() => {
+    const savedMode = window.localStorage.getItem(colorModeStorageKey);
+    if (savedMode === 'light' || savedMode === 'dark') setMode(savedMode);
+  }, []);
+
+  useEffect(() => {
     const detected = window.location.pathname.split('/')[1];
     if (detected === 'km' || detected === 'en') setLocale(detected);
   }, []);
   const value = useMemo(
-    () => ({ mode, toggleMode: () => setMode((previous) => (previous === 'light' ? 'dark' : 'light')) }),
+    () => ({
+      mode,
+      toggleMode: () => setMode((previous) => {
+        const nextMode = previous === 'light' ? 'dark' : 'light';
+        window.localStorage.setItem(colorModeStorageKey, nextMode);
+        return nextMode;
+      }),
+    }),
     [mode],
   );
   const theme = useMemo(() => buildTheme(mode, locale), [mode, locale]);

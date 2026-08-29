@@ -12,6 +12,7 @@ import Link from 'next/link';
 import type { Project } from '@/data/projects';
 import { TechnologyBadge } from './TechIcon';
 import { useLocale } from './Providers';
+import { localizedProjectCardCopy } from '@/lib/i18n';
 
 const iconByCategory = {
   Web: WebRoundedIcon,
@@ -25,19 +26,20 @@ const iconByCategory = {
 export default function ProjectCard({ project }: { project: Project }) {
   const Icon = iconByCategory[project.category];
   const { locale, messages } = useLocale();
+  const copy = localizedProjectCardCopy(project.slug, { title: project.title, category: project.category, status: project.status, period: project.period, summary: project.summary }, locale);
   return (
     <Card sx={{ height: '100%', overflow: 'hidden', transition: 'transform 180ms ease, box-shadow 180ms ease', '&:hover': { transform: 'translateY(-3px)', boxShadow: '0 6px 18px rgba(16,24,40,0.08)' } }}>
       <Box sx={{ height: 144, bgcolor: 'primary.main', color: '#fff', p: 2.5, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
           <Box sx={{ width: 48, height: 48, bgcolor: '#FFFFFF', color: 'primary.main', borderRadius: 1, display: 'grid', placeItems: 'center' }}><Icon /></Box>
-          <Chip label={project.category} size="small" sx={{ bgcolor: '#FFFFFF', color: '#101828', fontWeight: 800 }} />
+          <Chip label={copy.category} size="small" sx={{ bgcolor: '#FFFFFF', color: '#101828', fontWeight: 800 }} />
         </Stack>
-        <Typography variant="caption" sx={{ color: '#EAF0FF', fontWeight: 700 }}>{project.period}</Typography>
+        <Typography variant="caption" sx={{ color: '#EAF0FF', fontWeight: 700 }}>{copy.period}</Typography>
       </Box>
       <CardContent sx={{ p: 2.5 }}>
-        <Typography variant="h5" sx={{ fontWeight: 800 }}>{project.title}</Typography>
-        <Typography variant="body2" color="primary.main" sx={{ fontWeight: 750, mt: 0.5 }}>{project.status}</Typography>
-        <Typography color="text.secondary" sx={{ lineHeight: 1.7, mt: 1.3 }}>{project.summary}</Typography>
+        <Typography variant="h5" sx={{ fontWeight: 800 }}>{copy.title}</Typography>
+        <Typography variant="body2" color="primary.main" sx={{ fontWeight: 750, mt: 0.5 }}>{copy.status}</Typography>
+        <Typography color="text.secondary" sx={{ lineHeight: 1.7, mt: 1.3 }}>{copy.summary}</Typography>
         <Stack direction="row" gap={0.8} flexWrap="wrap" sx={{ mt: 2 }}>
           {project.technologies.slice(0, 3).map((tech) => <TechnologyBadge key={tech} name={tech} compact />)}
         </Stack>

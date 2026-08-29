@@ -8,22 +8,23 @@ import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import type { TeamMember } from '@/data/team';
 import { useLocale } from './Providers';
-import { localizedMemberName } from '@/lib/i18n';
+import { localizedMemberName, localizedTeamCardCopy } from '@/lib/i18n';
 
 export default function TeamCard({ member }: { member: TeamMember }) {
   const reduce = useReducedMotion();
   const { locale, messages } = useLocale();
+  const copy = localizedTeamCardCopy(member.slug, { role: member.role, shortRole: member.shortRole, focus: member.focus }, locale);
   return (
     <motion.div whileHover={reduce ? undefined : { y: -3 }} transition={{ duration: 0.18 }} style={{ height: '100%' }}>
       <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden', transition: 'box-shadow 180ms ease', '&:hover': { boxShadow: '0 6px 18px rgba(16,24,40,0.08)' } }}>
         <Box sx={{ position: 'relative', aspectRatio: '4 / 4.6', bgcolor: 'action.hover', overflow: 'hidden' }}>
-          <Image src={member.photo} alt={`${member.name} - ${member.role}`} fill sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 25vw" style={{ objectFit: 'cover', objectPosition: 'center top', transition: 'transform 220ms ease' }} />
-          <Chip label={member.shortRole} size="small" sx={{ position: 'absolute', top: 14, left: 14, bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider' }} />
+          <Image src={member.photo} alt={`${localizedMemberName(member.slug, member.name, locale)} - ${copy.role}`} fill sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 25vw" style={{ objectFit: 'cover', objectPosition: 'center top', transition: 'transform 220ms ease' }} />
+          <Chip label={copy.shortRole} size="small" sx={{ position: 'absolute', top: 14, left: 14, bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider' }} />
         </Box>
         <CardContent sx={{ display: 'flex', flex: 1, flexDirection: 'column', p: { xs: 2, md: 2.5 } }}>
           <Typography variant="h5" sx={{ fontWeight: 800 }}>{localizedMemberName(member.slug, member.name, locale)}</Typography>
-          <Typography color="primary.main" sx={{ fontWeight: 750, mt: 0.3 }}>{member.role}</Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mt: 1.1, minHeight: { sm: 62, lg: 78 } }}>{member.focus}</Typography>
+          <Typography color="primary.main" sx={{ fontWeight: 750, mt: 0.3 }}>{copy.role}</Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 1.1, minHeight: { sm: 62, lg: 78 } }}>{copy.focus}</Typography>
           <Stack direction="row" spacing={1} sx={{ mt: 'auto', pt: 2.2 }}>
             <Button component={Link} href={`/${locale}/team/${member.slug}`} variant="contained" size="small" endIcon={<ArrowForwardRoundedIcon />} sx={{ flex: 1, minWidth: 0 }}>{messages.actions.viewProfile}</Button>
             <Tooltip title={member.cv ? `${messages.actions.openCv}: ${member.name}` : messages.actions.cvUnavailable}>

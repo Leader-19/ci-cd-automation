@@ -54,6 +54,14 @@ export default function HomePage() {
   const [introDone, setIntroDone] = useState(false);
   const { locale } = useLocale();
   const km = locale === 'km';
+  const localizedExpertise = km
+    ? [
+        { title: 'ការអភិវឌ្ឍវេប', text: 'Frontend ដែលឆ្លើយតប កម្មវិធី Full-stack និងផលិតផលឌីជីថលជាក់ស្តែង។', icon: CodeRoundedIcon },
+        { title: 'ការធានាគុណភាព', text: 'QA ដោយដៃ ការសាកល្បងឡើងវិញ UAT ករណីសាកល្បង និងការផ្ទៀងផ្ទាត់លំហូរការងារ។', icon: BugReportRoundedIcon },
+        { title: 'ការរៀបចំផែនការ និងការប្រគល់', text: 'ការរៀបចំកិច្ចការ កិច្ចសហការ និងការប្រគល់គម្រោងប្រកបដោយរបៀបរៀបរយ។', icon: RouteRoundedIcon },
+        { title: 'ហេដ្ឋារចនាសម្ព័ន្ធ និងទូរគមនាគមន៍', text: 'ប្រតិបត្តិការ Roaming ឧបករណ៍ដាក់ឱ្យប្រើប្រាស់ និងប្រព័ន្ធបច្ចេកទេស។', icon: RouterRoundedIcon },
+      ]
+    : expertise;
   const localizedSteps = km
     ? [
         ['01', 'ស្វែងយល់', 'បញ្ជាក់គោលដៅ អ្នកប្រើប្រាស់ និងតម្រូវការជាក់ស្តែង។'],
@@ -139,7 +147,7 @@ export default function HomePage() {
         <Container maxWidth="xl">
           <Reveal><SectionHeading eyebrow={km ? 'អ្វីដែលយើងធ្វើ' : 'WHAT WE DO'} title={km ? 'ជំនាញបច្ចេកវិទ្យាដែលអនុវត្តបាន' : 'A practical technology skill set'} description={km ? 'យើងមានប្រវត្តិខុសគ្នា ប៉ុន្តែការងាររបស់យើងរួមគ្នាដើម្បីដោះស្រាយបញ្ហាពិតប្រាកដដោយបច្ចេកវិទ្យាដែលអាចទុកចិត្តបាន។' : 'Our backgrounds are different, but our work connects through one goal: solving real problems with dependable technology.'} /></Reveal>
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', xl: 'repeat(4, 1fr)' }, gap: 2 }}>
-            {expertise.map(({ title, text, icon: Icon }, index) => (
+            {localizedExpertise.map(({ title, text, icon: Icon }, index) => (
               <Reveal key={title} delay={index * 0.06}>
                 <Card sx={{ height: '100%' }}><CardContent sx={{ p: 3 }}><Box sx={{ width: 50, height: 50, borderRadius: 1, bgcolor: 'primary.main', color: '#fff', display: 'grid', placeItems: 'center', mb: 2.4 }}><Icon /></Box><Typography variant="h5" sx={{ fontWeight: 800 }}>{title}</Typography><Typography color="text.secondary" sx={{ lineHeight: 1.75, mt: 1.1 }}>{text}</Typography></CardContent></Card>
               </Reveal>

@@ -19,6 +19,14 @@ export const metadata: Metadata = {
 };
 
 const icons = [CodeRoundedIcon, BugReportRoundedIcon, RouteRoundedIcon, StorageRoundedIcon, CloudQueueRoundedIcon, RouterRoundedIcon];
+const khmerAreas = [
+  ['ការអភិវឌ្ឍ Full Stack', 'Frontend Backend APIs ការផ្ទៀងផ្ទាត់ មូលដ្ឋានទិន្នន័យ និងការដាក់ឱ្យប្រើប្រាស់ សម្រាប់ប្រព័ន្ធវេបជាក់ស្តែង។'],
+  ['ការធានាគុណភាព', 'ការសាកល្បងដោយដៃ ការសាកល្បងមុខងារ ការសាកល្បងឡើងវិញ UAT ករណីសាកល្បង និងការផ្ទៀងផ្ទាត់កំហុស។'],
+  ['ការរៀបចំផែនការ និងការប្រគល់ការងារជាក្រុម', 'ការគាំទ្រតម្រូវការ ការរៀបចំគម្រោង ការសម្របសម្រួលកិច្ចការ និងការប្រគល់ការងាររួមគ្នា។'],
+  ['ទិន្នន័យ និងរបាយការណ៍', 'របាយការណ៍ SQL មូលដ្ឋានទិន្នន័យទំនាក់ទំនង ផ្ទាំងព័ត៌មាន និងឧបករណ៍វិភាគទិន្នន័យ។'],
+  ['Cloud និងហេដ្ឋារចនាសម្ព័ន្ធ', 'ការដាក់ឱ្យប្រើប្រាស់លើ Linux ការបង្ហោះលើ Cloud, CI/CD និងបទពិសោធន៍ហេដ្ឋារចនាសម្ព័ន្ធ Container។'],
+  ['Roaming និង Interconnection', 'ការផ្ទៀងផ្ទាត់សេវា Roaming លំហូរ TAP ស្វ័យប្រវត្តិកម្មប្រតិបត្តិការ និងប្រព័ន្ធទូរគមនាគមន៍ខាងក្នុង។'],
+] as const;
 
 export default function ExpertisePage() {
   return (
@@ -42,12 +50,12 @@ export default function ExpertisePage() {
                   <CardContent sx={{ p: { xs: 3, md: 3.5 } }}>
                     <Stack direction="row" spacing={1.5} alignItems="center">
                       <Box sx={{ width: 50, height: 50, borderRadius: 1, bgcolor: 'primary.main', color: '#fff', display: 'grid', placeItems: 'center' }}><Icon /></Box>
-                      <Typography variant="h4" fontWeight={800}>{area.title}</Typography>
+                      <Typography variant="h4" fontWeight={800}><LocalizedText en={area.title} km={khmerAreas[index][0]} /></Typography>
                     </Stack>
-                    <Typography color="text.secondary" sx={{ lineHeight: 1.8, mt: 2 }}>{area.description}</Typography>
-                    <Typography variant="overline" color="text.secondary" sx={{ display: 'block', mt: 2.5, mb: 0.8 }}>RELATED TECHNOLOGIES</Typography>
+                    <Typography color="text.secondary" sx={{ lineHeight: 1.8, mt: 2 }}><LocalizedText en={area.description} km={khmerAreas[index][1]} /></Typography>
+                    <Typography variant="overline" color="text.secondary" sx={{ display: 'block', mt: 2.5, mb: 0.8 }}><LocalizedText en="RELATED TECHNOLOGIES" km="បច្ចេកវិទ្យាពាក់ព័ន្ធ" /></Typography>
                     <Stack direction="row" gap={0.8} flexWrap="wrap">{area.technologies.map((tech) => <TechnologyBadge key={tech} name={tech} compact />)}</Stack>
-                    <Typography variant="overline" color="text.secondary" sx={{ display: 'block', mt: 2.5, mb: 0.8 }}>RELATED MEMBERS</Typography>
+                    <Typography variant="overline" color="text.secondary" sx={{ display: 'block', mt: 2.5, mb: 0.8 }}><LocalizedText en="RELATED MEMBERS" km="សមាជិកពាក់ព័ន្ធ" /></Typography>
                     <AvatarGroup max={5} sx={{ justifyContent: 'flex-end', flexDirection: 'row' }}>{members.map((member) => member ? <Avatar key={member.slug} src={member.photo} alt={member.name} title={member.name} /> : null)}</AvatarGroup>
                   </CardContent>
                 </Card>
@@ -59,7 +67,7 @@ export default function ExpertisePage() {
 
       <Box sx={{ bgcolor: 'background.paper', borderBlock: '1px solid', borderColor: 'divider', py: { xs: 8, md: 11 } }}>
         <Container maxWidth="xl">
-          <Reveal><SectionHeading eyebrow="TECHNOLOGY SYSTEM" title="Visual technology badges, not text-only lists" description="The MVP uses compact neutral Material UI tiles and recognizable brand icons, following the supplied visual reference while keeping the overall interface clean and professional." /></Reveal>
+          <Reveal><SectionHeading eyebrow={<LocalizedText en="TECHNOLOGY SYSTEM" km="ប្រព័ន្ធបច្ចេកវិទ្យា" />} title={<LocalizedText en="Visual technology badges, not text-only lists" km="ផ្លាកសម្គាល់បច្ចេកវិទ្យាដែលមើលឃើញ មិនមែនជាបញ្ជីអត្ថបទប៉ុណ្ណោះ" />} description={<LocalizedText en="The MVP uses compact neutral Material UI tiles and recognizable brand icons, following the supplied visual reference while keeping the overall interface clean and professional." km="គេហទំព័រនេះប្រើបន្ទះ Material UI តូច សាមញ្ញ និងរូបតំណាងម៉ាកដែលងាយស្គាល់ ដើម្បីរក្សាចំណុចប្រទាក់ឱ្យស្អាត និងមានវិជ្ជាជីវៈ។" />} /></Reveal>
           <Stack direction="row" gap={1} flexWrap="wrap">
             {['React.js', 'Next.js', 'TypeScript', 'JavaScript', 'Material UI', 'Framer Motion', 'Vue.js', 'Laravel', 'PHP', 'Python', 'Node.js', 'MySQL', 'PostgreSQL', 'SQL Server', 'Figma', 'GitHub', 'Jira', 'Postman', 'AWS', 'Docker', 'Kubernetes', 'Linux'].map((tech) => <TechnologyBadge key={tech} name={tech} />)}
           </Stack>
