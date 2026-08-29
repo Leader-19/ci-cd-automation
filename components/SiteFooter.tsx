@@ -1,6 +1,7 @@
 import { Box, Button, Container, Divider, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import BrandLogo from './BrandLogo';
 
 const links = [
   ['About', '/about'], ['Team', '/team'], ['Expertise', '/expertise'], ['Projects', '/projects'], ['Contact', '/contact']
@@ -12,10 +13,9 @@ export default function SiteFooter() {
       <Container maxWidth="xl" sx={{ py: { xs: 6, md: 8 } }}>
         <Stack direction={{ xs: 'column', md: 'row' }} justifyContent="space-between" gap={4} alignItems={{ md: 'flex-end' }}>
           <Box sx={{ maxWidth: 620 }}>
-            <Stack direction="row" spacing={1.2} alignItems="center" sx={{ mb: 2 }}>
-              <Box sx={{ width: 40, height: 40, borderRadius: 2, bgcolor: 'primary.main', color: '#fff', display: 'grid', placeItems: 'center', fontWeight: 900, fontSize: 12 }}>PNC</Box>
-              <Typography fontWeight={850}>PNC Student Team Portfolio</Typography>
-            </Stack>
+            <Box component={Link} href="/" aria-label="PNC Team home" sx={{ display: 'inline-flex', mb: 2 }}>
+              <BrandLogo sx={{ width: { xs: 186, sm: 218 }, height: { xs: 50, sm: 58 } }} />
+            </Box>
             <Typography variant="h4" sx={{ fontWeight: 800, mb: 1.5 }}>Learning, building and growing through technology.</Typography>
             <Typography color="text.secondary" sx={{ lineHeight: 1.8 }}>A student technology team portfolio presenting practical experience across development, QA, planning, data and infrastructure.</Typography>
           </Box>

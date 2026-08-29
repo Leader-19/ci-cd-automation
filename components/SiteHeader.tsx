@@ -24,6 +24,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useColorMode } from './Providers';
+import BrandLogo from './BrandLogo';
 
 const nav = [
   { label: 'Home', href: '/' },
@@ -45,13 +46,9 @@ export default function SiteHeader() {
       <AppBar position="sticky" elevation={0} color="transparent" sx={{ borderBottom: '1px solid', borderColor: 'divider', bgcolor: 'background.paper', zIndex: 1200 }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ minHeight: { xs: 68, md: 76 } }}>
-            <Stack component={Link} href="/" direction="row" spacing={1.25} alignItems="center" sx={{ flexShrink: 0 }}>
-              <Box sx={{ width: 42, height: 42, borderRadius: 2, bgcolor: 'primary.main', color: '#fff', display: 'grid', placeItems: 'center', fontWeight: 900, fontSize: 13, letterSpacing: '-0.03em' }}>PNC</Box>
-              <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                <Typography sx={{ fontWeight: 850, lineHeight: 1.1, letterSpacing: '-0.03em' }}>Student Team</Typography>
-                <Typography variant="caption" color="text.secondary">Technology Portfolio</Typography>
-              </Box>
-            </Stack>
+            <Box component={Link} href="/" aria-label="PNC Team home" sx={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+              <BrandLogo />
+            </Box>
 
             <Stack direction="row" spacing={0.5} sx={{ mx: 'auto', display: { xs: 'none', md: 'flex' } }}>
               {nav.map((item) => (
@@ -86,7 +83,7 @@ export default function SiteHeader() {
 
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)} PaperProps={{ sx: { width: 'min(88vw, 360px)' } }}>
         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ p: 2.5, borderBottom: '1px solid', borderColor: 'divider' }}>
-          <Typography fontWeight={850}>PNC Student Team</Typography>
+          <BrandLogo sx={{ width: 164, height: 43 }} />
           <IconButton onClick={() => setOpen(false)} aria-label="Close navigation"><CloseRoundedIcon /></IconButton>
         </Stack>
         <List sx={{ p: 1.5 }}>
