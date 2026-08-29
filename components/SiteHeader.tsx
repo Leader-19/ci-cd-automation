@@ -23,30 +23,30 @@ import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { useColorMode } from './Providers';
+import { useColorMode, useLocale } from './Providers';
 import BrandLogo from './BrandLogo';
-
-const nav = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Team', href: '/team' },
-  { label: 'Expertise', href: '/expertise' },
-  { label: 'Projects', href: '/projects' },
-];
 
 export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const { mode, toggleMode } = useColorMode();
+  const { locale, messages, switchLocale } = useLocale();
+  const nav = [
+    { label: messages.nav.home, href: '/' }, { label: messages.nav.about, href: '/about' },
+    { label: messages.nav.team, href: '/team' }, { label: messages.nav.expertise, href: '/expertise' },
+    { label: messages.nav.projects, href: '/projects' },
+  ];
 
-  const active = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+  const currentPath = pathname.replace(/^\/(en|km)(?=\/|$)/, '') || '/';
+  const localizedHref = (href: string) => `/${locale}${href === '/' ? '' : href}`;
+  const active = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 
   return (
     <>
       <AppBar position="sticky" elevation={0} color="transparent" sx={{ borderBottom: '1px solid', borderColor: 'divider', bgcolor: 'background.paper', zIndex: 1200 }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ minHeight: { xs: 68, md: 72 } }}>
-            <Box component={Link} href="/" aria-label="PNC Team home" sx={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+            <Box component={Link} href={localizedHref('/')} aria-label="PNC Team home" sx={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
               <BrandLogo />
             </Box>
 
@@ -55,7 +55,7 @@ export default function SiteHeader() {
                 <Button
                   key={item.href}
                   component={Link}
-                  href={item.href}
+                  href={localizedHref(item.href)}
                   color={active(item.href) ? 'primary' : 'inherit'}
                   sx={{
                     minHeight: 44,
@@ -94,13 +94,18 @@ export default function SiteHeader() {
             </Stack>
 
             <Stack direction="row" spacing={1} alignItems="center" sx={{ ml: 'auto' }}>
+              <Tooltip title={locale === 'en' ? 'ប្ដូរទៅភាសាខ្មែរ' : 'Switch to English'}>
+                <IconButton onClick={() => switchLocale(locale === 'en' ? 'km' : 'en')} aria-label="Switch language" sx={{ border: '1px solid', borderColor: 'divider', width: 42, height: 42, p: 0.45 }}>
+                  <Box component="img" src={locale === 'en' ? '/logo-flag/en.png' : '/logo-flag/kh.png'} alt={locale === 'en' ? 'English' : 'ខ្មែរ'} sx={{ width: 28, height: 28, objectFit: 'contain', borderRadius: '50%' }} />
+                </IconButton>
+              </Tooltip>
               <Tooltip title={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}>
                 <IconButton onClick={toggleMode} aria-label="Toggle color mode" sx={{ border: '1px solid', borderColor: 'divider', width: 42, height: 42 }}>
                   {mode === 'light' ? <DarkModeRoundedIcon /> : <LightModeRoundedIcon />}
                 </IconButton>
               </Tooltip>
-              <Button component={Link} href="/contact" variant="contained" endIcon={<ArrowOutwardRoundedIcon />} sx={{ display: { xs: 'none', sm: 'inline-flex' } }}>
-                Let&apos;s Connect
+              <Button component={Link} href={localizedHref('/contact')} variant="contained" endIcon={<ArrowOutwardRoundedIcon />} sx={{ display: { xs: 'none', sm: 'inline-flex' } }}>
+                {messages.nav.connect}
               </Button>
               <IconButton onClick={() => setOpen(true)} aria-label="Open navigation" sx={{ display: { md: 'none' }, border: '1px solid', borderColor: 'divider', width: 42, height: 42 }}>
                 <MenuRoundedIcon />
@@ -116,8 +121,8 @@ export default function SiteHeader() {
           <IconButton onClick={() => setOpen(false)} aria-label="Close navigation"><CloseRoundedIcon /></IconButton>
         </Stack>
         <List sx={{ p: 1.5 }}>
-          {[...nav, { label: 'Contact', href: '/contact' }].map((item) => (
-            <ListItemButton key={item.href} component={Link} href={item.href} selected={active(item.href)} onClick={() => setOpen(false)} sx={{ borderRadius: 1, mb: 0.5, minHeight: 50 }}>
+          {[...nav, { label: messages.nav.contact, href: '/contact' }].map((item) => (
+            <ListItemButton key={item.href} component={Link} href={localizedHref(item.href)} selected={active(item.href)} onClick={() => setOpen(false)} sx={{ borderRadius: 1, mb: 0.5, minHeight: 50 }}>
               <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: active(item.href) ? 800 : 650 }} />
             </ListItemButton>
           ))}

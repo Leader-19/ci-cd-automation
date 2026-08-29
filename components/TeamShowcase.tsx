@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { teamMembers } from '@/data/team';
+import { useLocale } from './Providers';
 
 const cardSlots = [
   { top: '3%', left: '4%', width: '42%', rotate: -3, delay: 0 },
@@ -18,6 +19,8 @@ const cardSlots = [
 export default function TeamShowcase() {
   const [startingMember, setStartingMember] = useState(0);
   const reduceMotion = useReducedMotion();
+  const { locale } = useLocale();
+  const km = locale === 'km';
 
   useEffect(() => {
     if (reduceMotion) return;
@@ -65,9 +68,9 @@ export default function TeamShowcase() {
       })}
 
       <Box sx={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 8, width: { xs: 126, sm: 144 }, textAlign: 'center', bgcolor: 'primary.main', color: '#FFFFFF', borderRadius: '8px', p: { xs: 0.9, sm: 1.1 }, boxShadow: '0 6px 18px rgba(21,94,239,0.16)' }}>
-        <Typography variant="caption" sx={{ display: 'block', color: '#EAF0FF', fontSize: '9px', fontWeight: 700, letterSpacing: '0.04em', lineHeight: 1.35 }}>MEET THE TEAM · 7 MEMBERS</Typography>
-        <Typography variant="h6" sx={{ color: '#FFFFFF', fontSize: { xs: '14px', sm: '15px' }, fontWeight: 700, lineHeight: 1.2, mt: 0.35 }}>PNC Team</Typography>
-        <Typography variant="caption" sx={{ display: 'block', color: '#EAF0FF', fontSize: '9px', lineHeight: 1.3, mt: 0.3 }}>A rotating member showcase</Typography>
+        <Typography variant="caption" sx={{ display: 'block', color: '#EAF0FF', fontSize: '9px', fontWeight: 700, letterSpacing: '0.04em', lineHeight: 1.35 }}>{km ? 'ក្រុមការងារ · ៧ នាក់' : 'MEET THE TEAM · 7 MEMBERS'}</Typography>
+        <Typography variant="h6" sx={{ color: '#FFFFFF', fontSize: { xs: '14px', sm: '15px' }, fontWeight: 700, lineHeight: 1.2, mt: 0.35 }}>{km ? 'ក្រុម PNC' : 'PNC Team'}</Typography>
+        <Typography variant="caption" sx={{ display: 'block', color: '#EAF0FF', fontSize: '9px', lineHeight: 1.3, mt: 0.3 }}>{km ? 'បង្ហាញសមាជិកជាបន្តបន្ទាប់' : 'A rotating member showcase'}</Typography>
       </Box>
 
       <Chip label={`${startingMember + 1} / ${teamMembers.length}`} size="small" sx={{ position: 'absolute', bottom: { xs: '0%', sm: '1%' }, left: '50%', transform: 'translateX(-50%)', zIndex: 9, bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', fontWeight: 700 }} />

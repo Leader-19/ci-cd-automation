@@ -11,6 +11,7 @@ import { teamMembers } from '@/data/team';
 import { TechnologyBadge } from '@/components/TechIcon';
 import { Reveal } from '@/components/Motion';
 import SectionHeading from '@/components/SectionHeading';
+import LocalizedText from '@/components/LocalizedText';
 
 export const metadata: Metadata = {
   title: 'Expertise',
@@ -24,9 +25,9 @@ export default function ExpertisePage() {
     <>
       <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 5, md: 7 } }}>
         <Container maxWidth="xl">
-          <Typography variant="overline" color="primary.main" fontWeight={800}>EXPERTISE</Typography>
-          <Typography variant="h1" sx={{ maxWidth: 720, mt: 1 }}>Skills connected to practical work.</Typography>
-          <Typography color="text.secondary" sx={{ maxWidth: 700, fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, mt: 1.5 }}>We avoid fake percentage ratings. Instead, the site shows focus areas, tools actually documented in CVs and the people connected to each area.</Typography>
+          <Typography variant="overline" color="primary.main" fontWeight={800}><LocalizedText en="EXPERTISE" km="ជំនាញ" /></Typography>
+          <Typography variant="h1" sx={{ maxWidth: 720, mt: 1 }}><LocalizedText en="Skills connected to practical work." km="ជំនាញដែលភ្ជាប់ជាមួយការងារជាក់ស្តែង។" /></Typography>
+          <Typography color="text.secondary" sx={{ maxWidth: 700, fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, mt: 1.5 }}><LocalizedText en="We avoid fake percentage ratings. Instead, the site shows focus areas, tools actually documented in CVs and the people connected to each area." km="យើងមិនប្រើការវាយតម្លៃភាគរយដែលមិនពិតទេ។ គេហទំព័រនេះបង្ហាញផ្នែកជំនាញ ឧបករណ៍ដែលមានកត់ត្រាក្នុង CV និងសមាជិកដែលពាក់ព័ន្ធនឹងផ្នែកនីមួយៗ។" /></Typography>
         </Container>
       </Box>
 

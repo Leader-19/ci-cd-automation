@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
-export default function SectionHeading({ eyebrow, title, description, align = 'left' }: { eyebrow?: string; title: string; description?: string; align?: 'left' | 'center' }) {
+export default function SectionHeading({ eyebrow, title, description, align = 'left' }: { eyebrow?: React.ReactNode; title: React.ReactNode; description?: React.ReactNode; align?: 'left' | 'center' }) {
   return (
     <Box sx={{ maxWidth: align === 'center' ? 720 : 680, mx: align === 'center' ? 'auto' : 0, textAlign: align, mb: { xs: 3, md: 4 } }}>
       {eyebrow && (

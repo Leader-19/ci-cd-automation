@@ -11,6 +11,7 @@ import DnsRoundedIcon from '@mui/icons-material/DnsRounded';
 import Link from 'next/link';
 import type { Project } from '@/data/projects';
 import { TechnologyBadge } from './TechIcon';
+import { useLocale } from './Providers';
 
 const iconByCategory = {
   Web: WebRoundedIcon,
@@ -23,6 +24,7 @@ const iconByCategory = {
 
 export default function ProjectCard({ project }: { project: Project }) {
   const Icon = iconByCategory[project.category];
+  const { locale, messages } = useLocale();
   return (
     <Card sx={{ height: '100%', overflow: 'hidden', transition: 'transform 180ms ease, box-shadow 180ms ease', '&:hover': { transform: 'translateY(-3px)', boxShadow: '0 6px 18px rgba(16,24,40,0.08)' } }}>
       <Box sx={{ height: 144, bgcolor: 'primary.main', color: '#fff', p: 2.5, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -39,7 +41,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <Stack direction="row" gap={0.8} flexWrap="wrap" sx={{ mt: 2 }}>
           {project.technologies.slice(0, 3).map((tech) => <TechnologyBadge key={tech} name={tech} compact />)}
         </Stack>
-        <Button component={Link} href={`/projects/${project.slug}`} variant="text" endIcon={<ArrowForwardRoundedIcon />} sx={{ px: 0, mt: 2.4 }}>View case study</Button>
+        <Button component={Link} href={`/${locale}/projects/${project.slug}`} variant="text" endIcon={<ArrowForwardRoundedIcon />} sx={{ px: 0, mt: 2.4 }}>{messages.actions.viewCaseStudy}</Button>
       </CardContent>
     </Card>
   );

@@ -30,6 +30,8 @@ import { notFound } from 'next/navigation';
 import { memberBySlug, teamMembers } from '@/data/team';
 import { TechnologyBadge } from '@/components/TechIcon';
 import { Reveal } from '@/components/Motion';
+import LocalizedText from '@/components/LocalizedText';
+import { khmerMemberNames } from '@/lib/i18n';
 
 export function generateStaticParams() {
   return teamMembers.map((member) => ({ slug: member.slug }));
@@ -74,7 +76,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
             <Reveal delay={0.05}>
               <Box>
                 <Chip label="PNC STUDENT TEAM" color="primary" variant="outlined" sx={{ mb: 1.8 }} />
-                <Typography variant="h1">{member.name}</Typography>
+                <Typography variant="h1"><LocalizedText en={member.name} km={khmerMemberNames[member.slug] || member.name} /></Typography>
                 <Typography variant="h4" color="primary.main" sx={{ fontWeight: 800, mt: 0.7 }}>{member.role}</Typography>
                 <Typography color="text.secondary" sx={{ fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, maxWidth: 720, mt: 1.5 }}>{member.focus}</Typography>
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2} flexWrap="wrap" sx={{ mt: 3 }}>

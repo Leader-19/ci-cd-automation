@@ -8,6 +8,7 @@ import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
 import TrackChangesRoundedIcon from '@mui/icons-material/TrackChangesRounded';
 import SectionHeading from '@/components/SectionHeading';
 import { Reveal } from '@/components/Motion';
+import LocalizedText from '@/components/LocalizedText';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -36,9 +37,9 @@ export default function AboutPage() {
       <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 5, md: 7 } }}>
         <Container maxWidth="lg">
           <Chip label="ABOUT THE TEAM" color="primary" variant="outlined" sx={{ mb: 2 }} />
-          <Typography variant="h1" sx={{ maxWidth: 760 }}>A student team turning learning into practical experience.</Typography>
+          <Typography variant="h1" sx={{ maxWidth: 760 }}><LocalizedText en="A student team turning learning into practical experience." km="ក្រុមនិស្សិតដែលបម្លែងការសិក្សាទៅជាបទពិសោធន៍ជាក់ស្តែង។" /></Typography>
           <Typography color="text.secondary" sx={{ fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, maxWidth: 720, mt: 1.5 }}>
-            We are a PNC student technology team with different professional directions but a shared commitment to learning by building, testing and improving real solutions.
+            <LocalizedText en="We are a PNC student technology team with different professional directions but a shared commitment to learning by building, testing and improving real solutions." km="យើងជាក្រុមនិស្សិតបច្ចេកវិទ្យា PNC ដែលមានទិសដៅអាជីពខុសគ្នា ប៉ុន្តែមានការប្តេជ្ញាចិត្តរួមគ្នាក្នុងការរៀនតាមរយៈការបង្កើត សាកល្បង និងកែលម្អដំណោះស្រាយពិតប្រាកដ។" />
           </Typography>
         </Container>
       </Box>
@@ -52,7 +53,7 @@ export default function AboutPage() {
 
       <Box sx={{ bgcolor: 'background.paper', borderBlock: '1px solid', borderColor: 'divider', py: { xs: 8, md: 12 } }}>
         <Container maxWidth="xl">
-          <Reveal><SectionHeading eyebrow="OUR VALUES" title="The habits behind our work" description="A professional portfolio is not only about tools. These values shape how we communicate, build and improve together." /></Reveal>
+          <Reveal><SectionHeading eyebrow={<LocalizedText en="OUR VALUES" km="តម្លៃរបស់យើង" />} title={<LocalizedText en="The habits behind our work" km="ទម្លាប់នៅពីក្រោយការងាររបស់យើង" />} description={<LocalizedText en="A professional portfolio is not only about tools. These values shape how we communicate, build and improve together." km="ស្នាដៃវិជ្ជាជីវៈមិនមែនមានតែឧបករណ៍ប៉ុណ្ណោះទេ។ តម្លៃទាំងនេះកំណត់របៀបដែលយើងទំនាក់ទំនង បង្កើត និងកែលម្អជាមួយគ្នា។" />} /></Reveal>
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }, gap: 2 }}>
             {values.map(([title, text, Icon], index) => <Reveal key={title} delay={index * 0.04}><Card sx={{ height: '100%' }}><CardContent sx={{ p: 3 }}><Box sx={{ width: 48, height: 48, bgcolor: 'primary.main', color: '#fff', borderRadius: 1, display: 'grid', placeItems: 'center', mb: 2 }}><Icon /></Box><Typography variant="h5" fontWeight={800}>{title}</Typography><Typography color="text.secondary" sx={{ lineHeight: 1.75, mt: 1 }}>{text}</Typography></CardContent></Card></Reveal>)}
           </Box>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Public_Sans } from 'next/font/google';
+import { Battambang, Public_Sans } from 'next/font/google';
 import Providers from '@/components/Providers';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
@@ -10,6 +10,12 @@ const publicSans = Public_Sans({
   display: 'swap',
   variable: '--font-public-sans',
   weight: ['400', '500', '600', '700'],
+});
+const battambang = Battambang({
+  subsets: ['khmer'],
+  display: 'swap',
+  variable: '--font-battambang',
+  weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={publicSans.variable}>
+    <html lang="en" className={`${publicSans.variable} ${battambang.variable}`}>
       <body>
         <Providers>
           <SiteHeader />

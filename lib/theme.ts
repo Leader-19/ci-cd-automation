@@ -1,8 +1,9 @@
 'use client';
 
 import { createTheme } from '@mui/material/styles';
+import type { Locale } from './i18n';
 
-export const buildTheme = (mode: 'light' | 'dark') => {
+export const buildTheme = (mode: 'light' | 'dark', locale: Locale = 'en') => {
   const isLight = mode === 'light';
   const border = isLight ? '#E4E7EC' : 'rgba(255,255,255,0.10)';
 
@@ -19,7 +20,7 @@ export const buildTheme = (mode: 'light' | 'dark') => {
     },
     shape: { borderRadius: 8 },
     typography: {
-      fontFamily: 'var(--font-public-sans), "Public Sans", sans-serif',
+      fontFamily: locale === 'km' ? 'var(--font-battambang), "Battambang", sans-serif' : 'var(--font-public-sans), "Public Sans", sans-serif',
       fontSize: 14,
       h1: { fontSize: '26px', fontWeight: 700, lineHeight: 1.15, letterSpacing: '-0.02em', '@media (min-width:600px)': { fontSize: '30px' }, '@media (min-width:900px)': { fontSize: '34px' }, '@media (min-width:1200px)': { fontSize: '38px' }, '@media (min-width:1536px)': { fontSize: '40px' } },
       h2: { fontSize: '22px', fontWeight: 700, lineHeight: 1.25, letterSpacing: '-0.015em', '@media (min-width:600px)': { fontSize: '23px' }, '@media (min-width:900px)': { fontSize: '26px' }, '@media (min-width:1200px)': { fontSize: '29px' }, '@media (min-width:1536px)': { fontSize: '30px' } },
