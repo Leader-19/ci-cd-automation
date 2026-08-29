@@ -40,7 +40,7 @@ export default function ExpertisePage() {
                 <Card sx={{ height: '100%' }}>
                   <CardContent sx={{ p: { xs: 3, md: 3.5 } }}>
                     <Stack direction="row" spacing={1.5} alignItems="center">
-                      <Box sx={{ width: 50, height: 50, borderRadius: 2.4, bgcolor: 'primary.main', color: '#fff', display: 'grid', placeItems: 'center' }}><Icon /></Box>
+                      <Box sx={{ width: 50, height: 50, borderRadius: 1, bgcolor: 'primary.main', color: '#fff', display: 'grid', placeItems: 'center' }}><Icon /></Box>
                       <Typography variant="h4" fontWeight={800}>{area.title}</Typography>
                     </Stack>
                     <Typography color="text.secondary" sx={{ lineHeight: 1.8, mt: 2 }}>{area.description}</Typography>

@@ -79,7 +79,7 @@ export function TechnologyBadge({ name, compact = false }: { name: string; compa
           display: 'inline-flex',
           alignItems: 'center',
           gap: 0.8,
-          borderRadius: 2.25,
+          borderRadius: 1,
           bgcolor: 'background.paper',
           border: '1px solid',
           borderColor: 'divider',

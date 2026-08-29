@@ -87,7 +87,7 @@ export default function HomePage() {
             <Reveal delay={0.1}>
               <TeamShowcase />
               {/* Previous static collage retained here only as inactive reference.
-                <Box sx={{ position: 'absolute', left: '37%', top: '43%', zIndex: 4, bgcolor: 'primary.main', color: '#fff', borderRadius: 3, p: 2.1, width: 190, boxShadow: '0 12px 30px rgba(21,94,239,0.28)' }}>
+                <Box sx={{ position: 'absolute', left: '37%', top: '43%', zIndex: 4, bgcolor: 'primary.main', color: '#fff', borderRadius: 1, p: 2.1, width: 190, boxShadow: '0 12px 30px rgba(21,94,239,0.28)' }}>
                   <Typography variant="caption" sx={{ color: '#EAF0FF', fontWeight: 700 }}>BUILD • TEST • LEARN</Typography>
                   <Typography sx={{ fontWeight: 900, fontSize: '1.3rem', mt: 0.3 }}>PNC Team</Typography>
                   <Typography variant="caption" sx={{ color: '#EAF0FF' }}>Practical technology portfolio</Typography>
@@ -129,7 +129,7 @@ export default function HomePage() {
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', xl: 'repeat(4, 1fr)' }, gap: 2 }}>
             {expertise.map(({ title, text, icon: Icon }, index) => (
               <Reveal key={title} delay={index * 0.06}>
-                <Card sx={{ height: '100%' }}><CardContent sx={{ p: 3 }}><Box sx={{ width: 50, height: 50, borderRadius: 2.5, bgcolor: 'primary.main', color: '#fff', display: 'grid', placeItems: 'center', mb: 2.4 }}><Icon /></Box><Typography variant="h5" sx={{ fontWeight: 800 }}>{title}</Typography><Typography color="text.secondary" sx={{ lineHeight: 1.75, mt: 1.1 }}>{text}</Typography></CardContent></Card>
+                <Card sx={{ height: '100%' }}><CardContent sx={{ p: 3 }}><Box sx={{ width: 50, height: 50, borderRadius: 1, bgcolor: 'primary.main', color: '#fff', display: 'grid', placeItems: 'center', mb: 2.4 }}><Icon /></Box><Typography variant="h5" sx={{ fontWeight: 800 }}>{title}</Typography><Typography color="text.secondary" sx={{ lineHeight: 1.75, mt: 1.1 }}>{text}</Typography></CardContent></Card>
               </Reveal>
             ))}
           </Box>
@@ -160,7 +160,7 @@ export default function HomePage() {
           <Stack spacing={1.5}>
             {steps.map(([number, title, text], index) => (
               <Reveal key={number} delay={index * 0.04}>
-                <Card><CardContent sx={{ p: 2.6 }}><Stack direction="row" spacing={2.2} alignItems="flex-start"><Box sx={{ width: 48, height: 48, borderRadius: 2.3, border: '1px solid', borderColor: 'divider', bgcolor: 'background.default', display: 'grid', placeItems: 'center', fontWeight: 900, color: 'primary.main', flexShrink: 0 }}>{number}</Box><Box><Typography variant="h6" sx={{ fontWeight: 800 }}>{title}</Typography><Typography color="text.secondary" sx={{ mt: 0.5, lineHeight: 1.7 }}>{text}</Typography></Box></Stack></CardContent></Card>
+                <Card><CardContent sx={{ p: 2.6 }}><Stack direction="row" spacing={2.2} alignItems="flex-start"><Box sx={{ width: 48, height: 48, borderRadius: 1, border: '1px solid', borderColor: 'divider', bgcolor: 'background.default', display: 'grid', placeItems: 'center', fontWeight: 900, color: 'primary.main', flexShrink: 0 }}>{number}</Box><Box><Typography variant="h6" sx={{ fontWeight: 800 }}>{title}</Typography><Typography color="text.secondary" sx={{ mt: 0.5, lineHeight: 1.7 }}>{text}</Typography></Box></Stack></CardContent></Card>
               </Reveal>
             ))}
           </Stack>
@@ -169,7 +169,7 @@ export default function HomePage() {
 
       <Container maxWidth="xl" sx={{ pb: { xs: 4, md: 8 } }}>
         <Reveal>
-          <Box sx={{ bgcolor: 'primary.main', color: '#fff', borderRadius: 2, p: { xs: 3, md: 5 }, display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr auto' }, alignItems: 'center', gap: 3 }}>
+          <Box sx={{ bgcolor: 'primary.main', color: '#fff', borderRadius: 1, p: { xs: 3, md: 5 }, display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr auto' }, alignItems: 'center', gap: 3 }}>
             <Box>
               <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}><CheckCircleRoundedIcon /><Typography variant="overline" sx={{ fontWeight: 800, letterSpacing: '0.12em' }}>READY TO EXPLORE</Typography></Stack>
               <Typography variant="h3" sx={{ maxWidth: 620 }}>See the people, skills and experiences behind the PNC student team.</Typography>

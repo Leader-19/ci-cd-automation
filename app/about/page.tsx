@@ -54,7 +54,7 @@ export default function AboutPage() {
         <Container maxWidth="xl">
           <Reveal><SectionHeading eyebrow="OUR VALUES" title="The habits behind our work" description="A professional portfolio is not only about tools. These values shape how we communicate, build and improve together." /></Reveal>
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }, gap: 2 }}>
-            {values.map(([title, text, Icon], index) => <Reveal key={title} delay={index * 0.04}><Card sx={{ height: '100%' }}><CardContent sx={{ p: 3 }}><Box sx={{ width: 48, height: 48, bgcolor: 'primary.main', color: '#fff', borderRadius: 2.4, display: 'grid', placeItems: 'center', mb: 2 }}><Icon /></Box><Typography variant="h5" fontWeight={800}>{title}</Typography><Typography color="text.secondary" sx={{ lineHeight: 1.75, mt: 1 }}>{text}</Typography></CardContent></Card></Reveal>)}
+            {values.map(([title, text, Icon], index) => <Reveal key={title} delay={index * 0.04}><Card sx={{ height: '100%' }}><CardContent sx={{ p: 3 }}><Box sx={{ width: 48, height: 48, bgcolor: 'primary.main', color: '#fff', borderRadius: 1, display: 'grid', placeItems: 'center', mb: 2 }}><Icon /></Box><Typography variant="h5" fontWeight={800}>{title}</Typography><Typography color="text.secondary" sx={{ lineHeight: 1.75, mt: 1 }}>{text}</Typography></CardContent></Card></Reveal>)}
           </Box>
         </Container>
       </Box>
@@ -64,7 +64,7 @@ export default function AboutPage() {
         <Stack spacing={1.5}>
           {journey.map(([number, title, text], index) => (
             <Reveal key={number} delay={index * 0.05}>
-              <Card><CardContent sx={{ p: 2.8 }}><Stack direction={{ xs: 'column', sm: 'row' }} spacing={2.5}><Box sx={{ width: 54, height: 54, flexShrink: 0, borderRadius: 2.5, bgcolor: 'primary.main', color: '#fff', display: 'grid', placeItems: 'center', fontWeight: 900 }}>{number}</Box><Box><Typography variant="h5" fontWeight={800}>{title}</Typography><Typography color="text.secondary" sx={{ mt: 0.7, lineHeight: 1.75 }}>{text}</Typography></Box></Stack></CardContent></Card>
+              <Card><CardContent sx={{ p: 2.8 }}><Stack direction={{ xs: 'column', sm: 'row' }} spacing={2.5}><Box sx={{ width: 54, height: 54, flexShrink: 0, borderRadius: 1, bgcolor: 'primary.main', color: '#fff', display: 'grid', placeItems: 'center', fontWeight: 900 }}>{number}</Box><Box><Typography variant="h5" fontWeight={800}>{title}</Typography><Typography color="text.secondary" sx={{ mt: 0.7, lineHeight: 1.75 }}>{text}</Typography></Box></Stack></CardContent></Card>
             </Reveal>
           ))}
         </Stack>

@@ -117,7 +117,7 @@ export default function SiteHeader() {
         </Stack>
         <List sx={{ p: 1.5 }}>
           {[...nav, { label: 'Contact', href: '/contact' }].map((item) => (
-            <ListItemButton key={item.href} component={Link} href={item.href} selected={active(item.href)} onClick={() => setOpen(false)} sx={{ borderRadius: 2, mb: 0.5, minHeight: 50 }}>
+            <ListItemButton key={item.href} component={Link} href={item.href} selected={active(item.href)} onClick={() => setOpen(false)} sx={{ borderRadius: 1, mb: 0.5, minHeight: 50 }}>
               <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: active(item.href) ? 800 : 650 }} />
             </ListItemButton>
           ))}

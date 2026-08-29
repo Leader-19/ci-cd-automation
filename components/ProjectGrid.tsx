@@ -20,7 +20,7 @@ export default function ProjectGrid() {
           {filtered.map((project) => <ProjectCard key={project.slug} project={project} />)}
         </Box>
       ) : (
-        <Box sx={{ p: 5, border: '1px dashed', borderColor: 'divider', borderRadius: 3, textAlign: 'center' }}>
+        <Box sx={{ p: 5, border: '1px dashed', borderColor: 'divider', borderRadius: 1, textAlign: 'center' }}>
           <Typography variant="h6">No projects in this filter yet.</Typography>
           <Typography color="text.secondary">Choose another category to continue exploring.</Typography>
         </Box>

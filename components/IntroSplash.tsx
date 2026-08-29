@@ -77,7 +77,7 @@ export default function IntroSplash({ onComplete }: { onComplete: () => void }) 
             </Stack>
 
             <Stack spacing={2.2} sx={{ width: '100%', maxWidth: 760, mx: 'auto', mb: { xs: 2, md: 3 } }}>
-              <Box sx={{ p: { xs: 2, md: 2.5 }, borderRadius: 3, bgcolor: 'rgba(2,7,13,0.76)', border: '1px solid #27313A', backdropFilter: 'blur(10px)' }}>
+              <Box sx={{ p: { xs: 2, md: 2.5 }, borderRadius: 1, bgcolor: 'rgba(2,7,13,0.76)', border: '1px solid #27313A', backdropFilter: 'blur(10px)' }}>
                 <Typography variant="overline" sx={{ color: '#4EDBE0', letterSpacing: '0.14em', fontWeight: 800 }}>SYSTEM STARTUP</Typography>
                 <Typography variant="h4" sx={{ color: '#FFFFFF', mt: 0.6, fontSize: { xs: '16px', md: '18px' } }}>{label}</Typography>
                 <Stack direction="row" justifyContent="space-between" sx={{ mt: 2, mb: 0.8 }}>
