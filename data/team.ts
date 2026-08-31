@@ -347,18 +347,18 @@ export const teamMembers: TeamMember[] = [
     email: 'darin.hoy.official@gmail.com',
     phone: '+855 97 701 4644',
     location: 'Phnom Penh, Cambodia',
-    cv: '/cv/darin-hoy-developer.pdf',
-    cvLabel: 'Original CV',
+    // cv: '/cv/darin-hoy-developer.pdf',
+    // cvLabel: 'Original CV',
     languages: ['Khmer — Mother tongue', 'English — Intermediate'],
-    softSkills: ['Teamwork', 'Time & task management', 'Problem solving', 'Responsibility', 'Honesty'],
+    softSkills: ['Teamwork & Collaboration', 'Time & Task Management', 'Problem Solving & Critical Thinking', 'Responsibility & Ownership', 'Honesty & Integrity', 'Adaptability & Fast Learner', 'Effective Communication', 'Attention to Detail', 'Work Under Pressure & Deadline Driven'],
     skills: [
-      { label: 'Web', items: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'Vue.js', 'Laravel', 'Tailwind CSS'] },
-      { label: 'Backend & Data', items: ['Node.js', 'REST API', 'PostgreSQL', 'MySQL', 'Firebase', 'TypeScript OOP', 'Python Algorithms', 'Power BI'] },
-      { label: 'Tools', items: ['Figma', 'Git', 'GitHub', 'GitLab', 'VS Code', 'Jira', 'Swagger', 'AWS', 'Linux', 'Netlify', 'Vercel'] }
+      { label: 'Web & Frontend', items: ['HTML5', 'CSS3', 'JavaScript', 'Vue.js', 'React.js', 'Tailwind CSS'] },
+      { label: 'Backend & Data', items: ['Node.js', 'PHP', 'Laravel', 'Java', 'Spring Boot', 'REST API', 'JasperReports', 'PostgreSQL', 'MySQL', 'Firebase', 'TypeScript OOP', 'Python Algorithms', 'Power BI'] },
+      { label: 'Tools & DevOps', items: ['Figma', 'Git', 'GitHub', 'GitLab', 'IntelliJ IDEA', 'VS Code', 'Navicat', 'Jira', 'Swagger', 'AWS', 'Linux', 'Netlify', 'Vercel'] }
     ],
     education: [
-      { institution: 'BELTEI International University', degree: 'Bachelor’s Degree — Software Engineering', period: '2026 — 2028', detail: 'Commenced May 2026.' },
-      { institution: 'Passerelles Numériques Cambodia (PNC)', degree: 'Associate Degree — Computer Science', period: '2023 — 2025' },
+      { institution: 'BELTEI International University', degree: 'Bachelor’s Degree — Software Engineering', period: '2026 — Present'},
+      { institution: 'Passerelles Numériques Cambodia (PNC)', degree: 'Associate Degree — Web Programming', period: '2024 — 2025' },
       { institution: 'Sdao Santepheap High School', degree: 'High School Diploma', period: '2020 — 2023' }
     ],
     experience: [
@@ -373,7 +373,7 @@ export const teamMembers: TeamMember[] = [
           'Gained practical experience with Microsoft Fabric data pipelines and analytics workflows.'
         ],
         technologies: ['MySQL', 'SQL', 'GLPI', 'Microsoft Fabric']
-      }
+      },
     ],
     projects: [
       {
