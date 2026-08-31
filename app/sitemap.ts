@@ -2,6 +2,9 @@ import type { MetadataRoute } from 'next';
 import { teamMembers } from '@/data/team';
 import { projects } from '@/data/projects';
 
+// Generate sitemap.xml at build time so it works with `output: 'export'`.
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const paths = ['', '/about', '/team', '/expertise', '/projects', '/contact'];

@@ -3,8 +3,12 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  // Keeps production checks isolated when a local development server is already using .next.
+  // The site is a frontend-only portfolio and is deployed as static files through Nginx.
+  output: 'export',
+  // Allows production checks to use a separate build folder when local development uses `.next`.
   distDir: process.env.NEXT_DIST_DIR || '.next',
+  // Static exports do not include the Next.js image-optimization server.
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
