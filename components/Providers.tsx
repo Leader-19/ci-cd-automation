@@ -18,6 +18,7 @@ const LocaleContext = createContext({
 });
 
 const colorModeStorageKey = 'pnc-team-color-mode';
+const localeStorageKey = 'pnc-team-locale';
 
 export function useColorMode() {
   return useContext(ModeContext);
@@ -37,8 +38,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    const detected = window.location.pathname.split('/')[1];
-    if (detected === 'km' || detected === 'en') setLocale(detected);
+    const savedLocale = window.localStorage.getItem(localeStorageKey);
+    if (savedLocale === 'km' || savedLocale === 'en') setLocale(savedLocale);
   }, []);
   const value = useMemo(
     () => ({
@@ -57,9 +58,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     messages: messages[locale],
     switchLocale: (nextLocale: Locale) => {
       if (nextLocale === locale) return;
-      document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
-      const path = window.location.pathname.replace(/^\/(en|km)(?=\/|$)/, '') || '/';
-      window.location.assign(`/${nextLocale}${path}`);
+      window.localStorage.setItem(localeStorageKey, nextLocale);
+      setLocale(nextLocale);
     },
   }), [locale]);
 

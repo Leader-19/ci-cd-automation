@@ -89,8 +89,8 @@ export default function HomePage() {
                   {km ? 'ស្គាល់សមាជិកនិស្សិត PNC ចំនួនប្រាំពីរនាក់ ដែលមានជំនាញផ្នែកការអភិវឌ្ឍ Full-stack វិស្វកម្មវេបសាយ ការធានាគុណភាព ការរៀបចំផែនការ ទិន្នន័យ និងសេវា Roaming & Interconnection។' : 'Meet seven PNC student professionals across full-stack development, web engineering, quality assurance, planning, data and roaming & interconnection.'}
                 </Typography>
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.4} sx={{ mt: 3.6, width: { xs: '100%', sm: 'auto' } }}>
-                  <Button component={Link} href={`/${locale}/projects`} variant="contained" size="large" endIcon={<ArrowForwardRoundedIcon />}>{km ? 'មើលគម្រោងរបស់យើង' : 'View Our Projects'}</Button>
-                  <Button component={Link} href={`/${locale}/team`} variant="outlined" size="large" startIcon={<GroupsRoundedIcon />}>{km ? 'ស្គាល់ក្រុមការងារ' : 'Meet the Team'}</Button>
+                  <Button component={Link} href="/projects" variant="contained" size="large" endIcon={<ArrowForwardRoundedIcon />}>{km ? 'មើលគម្រោងរបស់យើង' : 'View Our Projects'}</Button>
+                  <Button component={Link} href="/team" variant="outlined" size="large" startIcon={<GroupsRoundedIcon />}>{km ? 'ស្គាល់ក្រុមការងារ' : 'Meet the Team'}</Button>
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mt: 4 }}>
                   <AvatarGroup max={7} sx={{ '& .MuiAvatar-root': { width: 38, height: 38, borderColor: 'background.default' } }}>
@@ -161,7 +161,7 @@ export default function HomePage() {
         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }, gap: 2.5 }}>
           {teamMembers.slice(0, 4).map((member, index) => <Reveal key={member.slug} delay={index * 0.05}><TeamCard member={member} /></Reveal>)}
         </Box>
-        <Button component={Link} href={`/${locale}/team`} variant="outlined" endIcon={<ArrowForwardRoundedIcon />} sx={{ mt: 3.5 }}>{km ? 'មើលសមាជិកទាំង ៧ នាក់' : 'View all 7 members'}</Button>
+        <Button component={Link} href="/team" variant="outlined" endIcon={<ArrowForwardRoundedIcon />} sx={{ mt: 3.5 }}>{km ? 'មើលសមាជិកទាំង ៧ នាក់' : 'View all 7 members'}</Button>
       </Container>
 
       <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.paper', borderBlock: '1px solid', borderColor: 'divider' }}>
@@ -170,13 +170,13 @@ export default function HomePage() {
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 2.5 }}>
             {projects.slice(0, 3).map((project, index) => <Reveal key={project.slug} delay={index * 0.06}><ProjectCard project={project} /></Reveal>)}
           </Box>
-          <Button component={Link} href={`/${locale}/projects`} variant="outlined" endIcon={<ArrowForwardRoundedIcon />} sx={{ mt: 3.5 }}>{km ? 'ស្វែងយល់ពីគម្រោងទាំងអស់' : 'Explore all case studies'}</Button>
+          <Button component={Link} href="/projects" variant="outlined" endIcon={<ArrowForwardRoundedIcon />} sx={{ mt: 3.5 }}>{km ? 'ស្វែងយល់ពីគម្រោងទាំងអស់' : 'Explore all case studies'}</Button>
         </Container>
       </Box>
 
       <Container maxWidth="xl" sx={{ py: { xs: 8, md: 12 } }}>
         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', lg: '0.8fr 1.2fr' }, gap: 6 }}>
-          <Reveal><Box sx={{ position: { lg: 'sticky' }, top: 120, alignSelf: 'start' }}><SectionHeading eyebrow={km ? 'របៀបដែលយើងធ្វើការ' : 'HOW WE WORK'} title={km ? 'លំហូរការងារដែលសាមញ្ញ និងមានវិន័យ' : 'A simple, disciplined delivery flow'} description={km ? 'ដំណើរការរបស់យើងធ្វើឱ្យការងារជាក្រុមច្បាស់លាស់ ចាប់ពីការយល់ដឹងអំពីបញ្ហា រហូតដល់ការផ្ទៀងផ្ទាត់ និងប្រគល់លទ្ធផល។' : 'Our process keeps teamwork visible from understanding the problem to validating and delivering the result.'} /><Button component={Link} href={`/${locale}/about`} variant="contained" endIcon={<ArrowForwardRoundedIcon />}>{km ? 'អំពីវិធីសាស្ត្ររបស់យើង' : 'About our approach'}</Button></Box></Reveal>
+          <Reveal><Box sx={{ position: { lg: 'sticky' }, top: 120, alignSelf: 'start' }}><SectionHeading eyebrow={km ? 'របៀបដែលយើងធ្វើការ' : 'HOW WE WORK'} title={km ? 'លំហូរការងារដែលសាមញ្ញ និងមានវិន័យ' : 'A simple, disciplined delivery flow'} description={km ? 'ដំណើរការរបស់យើងធ្វើឱ្យការងារជាក្រុមច្បាស់លាស់ ចាប់ពីការយល់ដឹងអំពីបញ្ហា រហូតដល់ការផ្ទៀងផ្ទាត់ និងប្រគល់លទ្ធផល។' : 'Our process keeps teamwork visible from understanding the problem to validating and delivering the result.'} /><Button component={Link} href="/about" variant="contained" endIcon={<ArrowForwardRoundedIcon />}>{km ? 'អំពីវិធីសាស្ត្ររបស់យើង' : 'About our approach'}</Button></Box></Reveal>
           <Stack spacing={1.5}>
             {localizedSteps.map(([number, title, text], index) => (
               <Reveal key={number} delay={index * 0.04}>
@@ -194,7 +194,7 @@ export default function HomePage() {
               <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}><CheckCircleRoundedIcon /><Typography variant="overline" sx={{ fontWeight: 800, letterSpacing: '0.12em' }}>{km ? 'ត្រៀមស្វែងយល់' : 'READY TO EXPLORE'}</Typography></Stack>
               <Typography variant="h3" sx={{ maxWidth: 620 }}>{km ? 'ស្វែងយល់ពីមនុស្ស ជំនាញ និងបទពិសោធន៍នៅពីក្រោយក្រុមនិស្សិត PNC។' : 'See the people, skills and experiences behind the PNC student team.'}</Typography>
             </Box>
-            <Button component={Link} href={`/${locale}/team`} variant="contained" sx={{ bgcolor: '#FFFFFF', color: '#0F172A', '&:hover': { bgcolor: '#EEF3FF' } }} endIcon={<ArrowForwardRoundedIcon />}>{km ? 'ស្គាល់ក្រុមការងារ' : 'Meet the Team'}</Button>
+            <Button component={Link} href="/team" variant="contained" sx={{ bgcolor: '#FFFFFF', color: '#0F172A', '&:hover': { bgcolor: '#EEF3FF' } }} endIcon={<ArrowForwardRoundedIcon />}>{km ? 'ស្គាល់ក្រុមការងារ' : 'Meet the Team'}</Button>
           </Box>
         </Reveal>
       </Container>

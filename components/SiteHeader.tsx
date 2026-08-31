@@ -37,8 +37,8 @@ export default function SiteHeader() {
     { label: messages.nav.projects, href: '/projects' },
   ];
 
-  const currentPath = pathname.replace(/^\/(en|km)(?=\/|$)/, '') || '/';
-  const localizedHref = (href: string) => `/${locale}${href === '/' ? '' : href}`;
+  const currentPath = pathname || '/';
+  const localizedHref = (href: string) => href;
   const active = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 
   return (

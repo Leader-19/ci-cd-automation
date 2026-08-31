@@ -26,7 +26,7 @@ export default function TeamCard({ member }: { member: TeamMember }) {
           <Typography color="primary.main" sx={{ fontWeight: 750, mt: 0.3 }}>{copy.role}</Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mt: 1.1, minHeight: { sm: 62, lg: 78 } }}>{copy.focus}</Typography>
           <Stack direction="row" spacing={1} sx={{ mt: 'auto', pt: 2.2 }}>
-            <Button component={Link} href={`/${locale}/team/${member.slug}`} variant="contained" size="small" endIcon={<ArrowForwardRoundedIcon />} sx={{ flex: 1, minWidth: 0 }}>{messages.actions.viewProfile}</Button>
+            <Button component={Link} href={`/team/${member.slug}`} variant="contained" size="small" endIcon={<ArrowForwardRoundedIcon />} sx={{ flex: 1, minWidth: 0 }}>{messages.actions.viewProfile}</Button>
             <Tooltip title={member.cv ? `${messages.actions.openCv}: ${member.name}` : messages.actions.cvUnavailable}>
               <span>
                 {member.cv ? (

@@ -54,7 +54,7 @@ export default function TeamShowcase() {
                 sx={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', borderRadius: 1, border: '3px solid', borderColor: 'background.paper', boxShadow: '0 6px 18px rgba(16,24,40,0.14)', bgcolor: 'background.paper' }}
               >
                 <Image src={member.photo} alt={`${name} — ${member.role}`} fill sizes="(max-width: 600px) 82px, 118px" style={{ objectFit: 'cover', objectPosition: 'center top' }} />
-                <Box component={Link} href={`/${locale}/team/${member.slug}`} aria-label={`${km ? 'មើលប្រវត្តិរូប' : 'View'} ${name}`} sx={{ position: 'absolute', inset: 0, '&:focus-visible': { outline: '3px solid', outlineColor: 'primary.main', outlineOffset: -4 } }} />
+                <Box component={Link} href={`/team/${member.slug}`} aria-label={`${km ? 'មើលប្រវត្តិរូប' : 'View'} ${name}`} sx={{ position: 'absolute', inset: 0, '&:focus-visible': { outline: '3px solid', outlineColor: 'primary.main', outlineOffset: -4 } }} />
               </Box>
             </Box>
           );

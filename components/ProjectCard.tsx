@@ -43,7 +43,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <Stack direction="row" gap={0.8} flexWrap="wrap" sx={{ mt: 2 }}>
           {project.technologies.slice(0, 3).map((tech) => <TechnologyBadge key={tech} name={tech} compact />)}
         </Stack>
-        <Button component={Link} href={`/${locale}/projects/${project.slug}`} variant="text" endIcon={<ArrowForwardRoundedIcon />} sx={{ px: 0, mt: 2.4 }}>{messages.actions.viewCaseStudy}</Button>
+        <Button component={Link} href={`/projects/${project.slug}`} variant="text" endIcon={<ArrowForwardRoundedIcon />} sx={{ px: 0, mt: 2.4 }}>{messages.actions.viewCaseStudy}</Button>
       </CardContent>
     </Card>
   );

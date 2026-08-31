@@ -8,7 +8,7 @@ import { useLocale } from './Providers';
 
 export default function SiteFooter() {
   const { locale, messages } = useLocale();
-  const href = (path: string) => `/${locale}${path}`;
+  const href = (path: string) => path;
   const links = [
     [messages.nav.about, '/about'], [messages.nav.team, '/team'], [messages.nav.expertise, '/expertise'], [messages.nav.projects, '/projects'], [messages.nav.contact, '/contact'],
   ];
@@ -19,7 +19,7 @@ export default function SiteFooter() {
       <Container maxWidth="xl" sx={{ py: { xs: 6, md: 8 } }}>
         <Stack direction={{ xs: 'column', md: 'row' }} justifyContent="space-between" gap={4} alignItems={{ md: 'flex-end' }}>
           <Box sx={{ maxWidth: 620 }}>
-            <Box component={Link} href={`/${locale}`} aria-label="PNC Team home" sx={{ display: 'inline-flex', mb: 2 }}>
+            <Box component={Link} href="/" aria-label="PNC Team home" sx={{ display: 'inline-flex', mb: 2 }}>
               <BrandLogo sx={{ width: { xs: 186, sm: 218 }, height: { xs: 50, sm: 58 } }} />
             </Box>
             <Typography variant="h4" sx={{ fontWeight: 800, mb: 1.5 }}>{km ? 'រៀន បង្កើត និងរីកចម្រើនតាមរយៈបច្ចេកវិទ្យា។' : 'Learning, building and growing through technology.'}</Typography>

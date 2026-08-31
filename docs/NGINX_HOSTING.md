@@ -5,20 +5,15 @@ This project is a static Next.js export. Nginx serves the generated `out/` direc
 ## Build and publish
 
 ```bash
-cd /var/www/pncteamstartup.site/repo
+cd /var/www/html/PNC-TEAM-STARTUP
 git pull --ff-only origin master
-rm -rf .next-deploy out
+rm -rf .next out
+unset NEXT_DIST_DIR
+unset NEXT_PUBLIC_SITE_URL
 export NODE_OPTIONS="--max-old-space-size=1024"
 export NEXT_TELEMETRY_DISABLED=1
-export NEXT_PUBLIC_SITE_URL=https://pncteamstartup.site
 npm ci
 npm run build
-
-release="/var/www/pncteamstartup.site/releases/$(date +%Y%m%d%H%M%S)"
-sudo mkdir -p "$release"
-sudo rsync -a --delete out/ "$release/"
-sudo chmod -R a+rX "$release"
-sudo ln -sfn "$release" /var/www/pncteamstartup.site/current
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
@@ -33,7 +28,9 @@ sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
-The Nginx template maps `/en/...` and `/km/...` to their static exported files. This preserves language switching without a Node.js server.
+Language switching is stored in the visitor's browser, so every page uses one
+real static URL. The Nginx template also resolves routes with a trailing slash
+to the matching exported HTML file instead of returning a 403 error.
 
 ## HTTPS
 
