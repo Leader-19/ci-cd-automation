@@ -10,7 +10,6 @@ git pull --ff-only origin master
 rm -rf .next-deploy out
 export NODE_OPTIONS="--max-old-space-size=1024"
 export NEXT_TELEMETRY_DISABLED=1
-export NEXT_DIST_DIR=".next-deploy"
 export NEXT_PUBLIC_SITE_URL=https://pncteamstartup.site
 npm ci
 npm run build

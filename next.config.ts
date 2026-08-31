@@ -5,8 +5,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   // The site is a frontend-only portfolio and is deployed as static files through Nginx.
   output: 'export',
-  // Allows production checks to use a separate build folder when local development uses `.next`.
-  distDir: process.env.NEXT_DIST_DIR || '.next',
   // Static exports do not include the Next.js image-optimization server.
   images: { unoptimized: true },
 };
