@@ -419,6 +419,9 @@ export const teamMembers: TeamMember[] = [
     email: 'dinleader200@gmail.com',
     phone: '+855 98 265 667',
     location: 'Phnom Penh, Cambodia',
+    linkedin: 'https://www.linkedin.com/in/leader-din-441bb0363/',
+    github: 'https://github.com/Leader-19',
+    portfolio: 'https://din-leader.vercel.app',
     cv: '/cv/leader-din-infrastructure.pdf',
     cvLabel: 'Original CV',
     languages: ['Khmer — Mother tongue', 'English — Intermediate'],
@@ -430,12 +433,12 @@ export const teamMembers: TeamMember[] = [
     ],
     education: [
       { institution: 'Passerelles Numériques Cambodia (PNC)', degree: 'Associate Degree — Web Programming', period: '2023 — 2025' },
-      { institution: 'Institution not specified in CV', degree: 'Computer Science studies', period: '2022 — 2023' }
+      { institution: 'AGA Institute', degree: 'Computer Science studies', period: '2026 — 2027' }
     ],
     experience: [
       {
         role: 'Junior Roaming & Interconnect Administrator',
-        organization: 'Professional Experience',
+        organization: 'Smart Axiata',
         period: 'Current role in supplied CV',
         bullets: [
           'Developed and maintained a CRM system using Laravel, Vue.js, Tailwind CSS and MariaDB.',
@@ -447,7 +450,7 @@ export const teamMembers: TeamMember[] = [
         technologies: ['Laravel', 'Vue.js', 'MariaDB', 'GitLab CI', 'Argo CD', 'Rancher', 'Linux', 'Docker', 'Kubernetes']
       },
       {
-        role: 'Intern',
+        role: 'IT Intern',
         organization: 'Cambodia Airports (CAMS)',
         period: 'Internship',
         bullets: [
@@ -459,10 +462,10 @@ export const teamMembers: TeamMember[] = [
       }
     ],
     projects: [
-      { title: 'CRM System', role: 'Developer', summary: 'Internal CRM platform supporting operational workflows.', technologies: ['Laravel', 'Vue.js', 'Tailwind CSS', 'MariaDB'] },
-      { title: 'CN/DN Automation', role: 'Developer', summary: 'Automation designed to streamline operational CN/DN processing.', technologies: ['Automation', 'Backend'] },
-      { title: 'TAP File Automation', role: 'Developer', summary: 'System for processing and validating roaming TAP files.', technologies: ['Roaming', 'Automation'] },
-      { title: 'Dynamic Dashboard', role: 'Developer', summary: 'Internal dashboard with real-time analytics and reporting for business insights.', technologies: ['Dashboard', 'Analytics', 'Power BI'] }
+      { title: 'CRM System', role: 'Full-Stack Developer', summary: 'Internal CRM platform supporting operational workflows.', technologies: ['Laravel', 'Vue.js', 'Tailwind CSS', 'MariaDB'] },
+      { title: 'CN/DN Automation', role: 'Full-Stack Developer', summary: 'Automation designed to streamline operational CN/DN processing.', technologies: ['Automation', 'Backend'] },
+      { title: 'TAP File Automation', role: 'Full-Stack Developer', summary: 'System for processing and validating roaming TAP files.', technologies: ['Roaming', 'Automation'] },
+      { title: 'Dynamic Dashboard', role: 'Full-Stack Developer', summary: 'Internal dashboard with real-time analytics and reporting for business insights.', technologies: ['Dashboard', 'Laravel', 'Vue JS', 'ChartJS', 'Queue'] }
     ]
   },
   {

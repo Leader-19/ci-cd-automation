@@ -94,7 +94,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'roaming-automation-platform',
-    title: 'Roaming Automation & Operations Dashboard',
+    title: 'Roaming validation service',
     category: 'Telecom',
     status: 'Professional Experience',
     period: 'Current role',
