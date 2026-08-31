@@ -3,10 +3,14 @@ import { teamMembers } from '@/data/team';
 import { khmerMemberNames } from '@/lib/i18n';
 
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://pncteamstartup.site').replace(/\/$/, '');
-export const siteName = 'PNC Student Team Portfolio';
-export const siteDescription = 'Meet the PNC student technology team and explore verified skills, professional experience, academic projects and practical technology work.';
+export const brandName = 'PNCTEAMSTARTUP';
+export const siteName = 'PNCTEAMSTARTUP — PNC Student Team Portfolio';
+export const siteDescription = 'PNCTEAMSTARTUP is the portfolio of the PNC student technology team, presenting verified skills, professional experience, academic projects and practical technology work.';
 
 const sharedKeywords = [
+  'pncteamstartup',
+  'PNC Team Startup',
+  'PNCTEAMSTARTUP portfolio',
   'PNC student team',
   'PNC Cambodia',
   'student technology portfolio',
@@ -69,6 +73,7 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: siteName,
+  alternateName: [brandName, 'PNC Team Startup', 'PNC Student Team Portfolio'],
   url: siteUrl,
   logo: `${siteUrl}/logo/logo.png`,
   description: siteDescription,

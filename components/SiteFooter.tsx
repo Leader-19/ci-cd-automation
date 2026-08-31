@@ -32,7 +32,7 @@ export default function SiteFooter() {
           <Stack direction="row" gap={2.5} flexWrap="wrap">
             {links.map(([label, path]) => <Typography key={path} component={Link} href={href(path)} variant="body2" color="text.secondary" sx={{ '&:hover': { color: 'primary.main' } }}>{label}</Typography>)}
           </Stack>
-          <Typography variant="body2" color="text.secondary">{km ? '© 2026 ក្រុមនិស្សិត PNC។ ស្នាដៃ Frontend Portfolio MVP។' : '© 2026 PNC Student Team. Frontend portfolio MVP.'}</Typography>
+          <Typography variant="body2" color="text.secondary">{km ? '© 2026 PNCTEAMSTARTUP · ក្រុមនិស្សិត PNC។ ស្នាដៃ Frontend Portfolio MVP។' : '© 2026 PNCTEAMSTARTUP · PNC Student Team. Frontend portfolio MVP.'}</Typography>
         </Stack>
       </Container>
     </Box>

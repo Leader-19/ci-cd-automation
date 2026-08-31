@@ -81,7 +81,7 @@ export default function HomePage() {
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', lg: 'minmax(0, 1.08fr) minmax(460px, 0.92fr)' }, gap: { xs: 5, lg: 7 }, alignItems: 'center' }}>
             <Reveal>
               <Stack alignItems="flex-start">
-                <Chip label={km ? 'ក្រុមបច្ចេកវិទ្យានិស្សិត PNC' : 'PNC STUDENT TECHNOLOGY TEAM'} color="primary" variant="outlined" sx={{ mb: 2.5, fontWeight: 800 }} />
+                <Chip label={km ? 'PNCTEAMSTARTUP · ក្រុមបច្ចេកវិទ្យានិស្សិត PNC' : 'PNCTEAMSTARTUP · PNC STUDENT TECHNOLOGY TEAM'} color="primary" variant="outlined" sx={{ mb: 2.5, fontWeight: 800 }} />
                 <Typography variant="h1" sx={{ maxWidth: 640 }}>
                   {km ? <>យើងរៀនតាមរយៈការបង្កើត <Box component="span" sx={{ color: 'primary.main' }}>បច្ចេកវិទ្យាពិតប្រាកដ។</Box></> : <>We learn by building <Box component="span" sx={{ color: 'primary.main' }}>real technology.</Box></>}
                 </Typography>
