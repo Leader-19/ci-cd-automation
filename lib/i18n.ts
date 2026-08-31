@@ -19,7 +19,7 @@ export type Messages = (typeof messages)[Locale];
 export const khmerMemberNames: Record<string, string> = {
   'chhea-chhouy': 'ឈយ ឈា',
   'kin-doung': 'ដូង គីន',
-  'sokchea-boy': 'ប៊យ សុខជា',
+  'sokchea-boy': 'បូយ សុខជា',
   'bunyoung-hean': 'ហ៊ាន ប៊ុនយ៉ុង',
   'darin-hoy': 'ហូយ ដារីន',
   'leader-din': 'ឌិន លីដ័រ',
