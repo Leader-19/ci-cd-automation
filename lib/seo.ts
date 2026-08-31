@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { teamMembers } from '@/data/team';
+import { khmerMemberNames } from '@/lib/i18n';
 
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://pncteamstartup.site').replace(/\/$/, '');
 export const siteName = 'PNC Student Team Portfolio';
@@ -15,6 +17,12 @@ const sharedKeywords = [
   'web development projects',
   'Phnom Penh technology team',
 ];
+
+// These are genuine profile names, included so people can find the team in either script.
+export const memberSearchKeywords = teamMembers.flatMap((member) => [
+  member.name,
+  khmerMemberNames[member.slug],
+]).filter((name): name is string => Boolean(name));
 
 const socialImage = {
   url: '/logo/logo.png',

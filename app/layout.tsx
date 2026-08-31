@@ -4,7 +4,7 @@ import Providers from '@/components/Providers';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import JsonLd from '@/components/JsonLd';
-import { organizationSchema, siteDescription, siteName, siteUrl } from '@/lib/seo';
+import { memberSearchKeywords, organizationSchema, siteDescription, siteName, siteUrl } from '@/lib/seo';
 
 const publicSans = Public_Sans({
   subsets: ['latin'],
@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'PNC Student Team' }],
   creator: 'PNC Student Team',
   publisher: 'PNC Student Team',
+  keywords: memberSearchKeywords,
   category: 'Technology portfolio',
   formatDetection: { email: false, address: false, telephone: false },
   robots: {

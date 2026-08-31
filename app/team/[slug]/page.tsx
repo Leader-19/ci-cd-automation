@@ -43,11 +43,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const member = memberBySlug(slug);
   if (!member) return { title: 'Team Member' };
+  const khmerName = khmerMemberNames[member.slug];
   return createPageMetadata({
     title: `${member.name} — ${member.role}`,
-    description: `Explore ${member.name}'s verified skills, education, experience and projects as a ${member.role}.`,
+    description: `Explore ${member.name}${khmerName ? ` (${khmerName})` : ''}: verified skills, education, experience and projects as a ${member.role}.`,
     path: `/team/${member.slug}`,
-    keywords: [member.name, member.role, ...member.skills.flatMap((group) => group.items).slice(0, 8)],
+    keywords: [member.name, khmerName || '', member.role, ...member.skills.flatMap((group) => group.items).slice(0, 8)],
   });
 }
 
@@ -75,6 +76,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
         mainEntity: {
           '@type': 'Person',
           name: member.name,
+          alternateName: khmerMemberNames[member.slug],
           jobTitle: member.role,
           description: member.summary,
           image: `${siteUrl}${member.photo}`,
@@ -97,6 +99,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
               <Box>
                 <Chip label={<LocalizedText en="PNC STUDENT TEAM" km="ក្រុមនិស្សិត PNC" />} color="primary" variant="outlined" sx={{ mb: 1.8 }} />
                 <Typography variant="h1"><LocalizedText en={member.name} km={khmerMemberNames[member.slug] || member.name} /></Typography>
+                {khmerMemberNames[member.slug] && <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>{member.name} · {khmerMemberNames[member.slug]}</Typography>}
                 <Typography variant="h4" color="primary.main" sx={{ fontWeight: 800, mt: 0.7 }}><LocalizedText en={member.role} km={khmerCard?.role || member.role} /></Typography>
                 <Typography color="text.secondary" sx={{ fontSize: { xs: '14px', md: '15px' }, lineHeight: 1.7, maxWidth: 720, mt: 1.5 }}><LocalizedText en={member.focus} km={khmerCard?.focus || member.focus} /></Typography>
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2} flexWrap="wrap" sx={{ mt: 3 }}>
