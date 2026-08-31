@@ -3,8 +3,9 @@ import { Battambang, Public_Sans } from 'next/font/google';
 import Providers from '@/components/Providers';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
+import JsonLd from '@/components/JsonLd';
+import { organizationSchema, siteDescription, siteName, siteUrl } from '@/lib/seo';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 const publicSans = Public_Sans({
   subsets: ['latin'],
   display: 'swap',
@@ -19,23 +20,42 @@ const battambang = Battambang({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: 'PNC Student Team Portfolio',
+    default: siteName,
     template: '%s | PNC Student Team',
   },
-  description: 'A professional student technology team portfolio presenting skills, experience, education, projects and practical learning from seven PNC team members.',
-  metadataBase: new URL(siteUrl),
-  openGraph: {
-    title: 'PNC Student Team Portfolio',
-    description: 'Meet the PNC student technology team and explore their skills, experience and projects.',
-    type: 'website',
+  description: siteDescription,
+  applicationName: siteName,
+  authors: [{ name: 'PNC Student Team' }],
+  creator: 'PNC Student Team',
+  publisher: 'PNC Student Team',
+  category: 'Technology portfolio',
+  formatDetection: { email: false, address: false, telephone: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
   },
+  manifest: '/manifest.webmanifest',
+  icons: { icon: '/icon.svg', shortcut: '/icon.svg', apple: '/icon.svg' },
+  openGraph: {
+    title: siteName,
+    description: siteDescription,
+    url: '/',
+    siteName,
+    type: 'website',
+    locale: 'en_US',
+    images: [{ url: '/logo/logo.png', width: 1672, height: 941, alt: siteName }],
+  },
+  twitter: { card: 'summary_large_image', title: siteName, description: siteDescription, images: ['/logo/logo.png'] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${publicSans.variable} ${battambang.variable}`}>
       <body>
+        <JsonLd data={organizationSchema} />
         <Providers>
           <SiteHeader />
           <main>{children}</main>

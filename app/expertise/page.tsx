@@ -12,11 +12,9 @@ import { TechnologyBadge } from '@/components/TechIcon';
 import { Reveal } from '@/components/Motion';
 import SectionHeading from '@/components/SectionHeading';
 import LocalizedText from '@/components/LocalizedText';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Expertise',
-  description: 'Explore the PNC student team’s expertise across development, QA, planning, data, cloud and telecommunications.',
-};
+export const metadata: Metadata = createPageMetadata({ title: 'Technology Expertise', description: 'Explore the PNC student team’s skills in full-stack development, QA, planning, data, cloud infrastructure and telecommunications.', path: '/expertise', keywords: ['full stack development Cambodia', 'QA testing', 'cloud infrastructure', 'telecommunications'] });
 
 const icons = [CodeRoundedIcon, BugReportRoundedIcon, RouteRoundedIcon, StorageRoundedIcon, CloudQueueRoundedIcon, RouterRoundedIcon];
 const khmerAreas = [

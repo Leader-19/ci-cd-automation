@@ -1,7 +1,13 @@
+import type { Metadata } from 'next';
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Page Not Found',
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   return (

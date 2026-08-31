@@ -8,6 +8,8 @@ import { projectBySlug, projects } from '@/data/projects';
 import { teamMembers } from '@/data/team';
 import { TechnologyBadge } from '@/components/TechIcon';
 import { Reveal } from '@/components/Motion';
+import JsonLd from '@/components/JsonLd';
+import { createPageMetadata, siteUrl } from '@/lib/seo';
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -17,7 +19,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const project = projectBySlug(slug);
   if (!project) return { title: 'Project' };
-  return { title: project.title, description: project.summary };
+  return createPageMetadata({
+    title: project.title,
+    description: project.summary,
+    path: `/projects/${project.slug}`,
+    keywords: [project.category, project.status, ...project.technologies],
+  });
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -28,6 +35,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: project.title,
+        description: project.summary,
+        url: `${siteUrl}/projects/${project.slug}`,
+        keywords: project.technologies.join(', '),
+        about: project.category,
+        creator: members.map((member) => member ? ({ '@type': 'Person', name: member.name, url: `${siteUrl}/team/${member.slug}` }) : null).filter(Boolean),
+      }} />
       <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider' }}>
         <Container maxWidth="xl" sx={{ py: { xs: 4, md: 6 } }}>
           <Button component={Link} href="/projects" variant="text" startIcon={<ArrowBackRoundedIcon />} sx={{ px: 0, mb: 3 }}>Back to Projects</Button>

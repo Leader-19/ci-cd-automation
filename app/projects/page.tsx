@@ -3,15 +3,15 @@ import { Box, Container, Typography } from '@mui/material';
 import ProjectGrid from '@/components/ProjectGrid';
 import { projects } from '@/data/projects';
 import LocalizedText from '@/components/LocalizedText';
+import JsonLd from '@/components/JsonLd';
+import { createPageMetadata, siteUrl } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Projects',
-  description: 'Explore professional, internship and academic case studies from the PNC student team.',
-};
+export const metadata: Metadata = createPageMetadata({ title: 'Technology Projects and Case Studies', description: 'Explore professional, internship and academic software, QA, data and telecom case studies from the PNC student team.', path: '/projects', keywords: ['Cambodia student projects', 'software case studies', 'web development portfolio'] });
 
 export default function ProjectsPage() {
   return (
     <>
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'ItemList', name: 'PNC Student Team Projects', itemListElement: projects.map((project, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'CreativeWork', name: project.title, description: project.summary, url: `${siteUrl}/projects/${project.slug}` } })) }} />
       <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 5, md: 7 } }}>
         <Container maxWidth="xl">
           <Typography variant="overline" color="primary.main" fontWeight={800}><LocalizedText en="PROJECTS & EXPERIENCE" km="គម្រោង និងបទពិសោធន៍" /></Typography>

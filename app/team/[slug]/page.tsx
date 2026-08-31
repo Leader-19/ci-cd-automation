@@ -32,6 +32,8 @@ import { TechnologyBadge } from '@/components/TechIcon';
 import { Reveal } from '@/components/Motion';
 import LocalizedText from '@/components/LocalizedText';
 import { khmerMemberNames, khmerProfileSummaries, khmerTeamCardCopy } from '@/lib/i18n';
+import JsonLd from '@/components/JsonLd';
+import { createPageMetadata, siteUrl } from '@/lib/seo';
 
 export function generateStaticParams() {
   return teamMembers.map((member) => ({ slug: member.slug }));
@@ -41,10 +43,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const member = memberBySlug(slug);
   if (!member) return { title: 'Team Member' };
-  return {
+  return createPageMetadata({
     title: `${member.name} — ${member.role}`,
-    description: `Explore ${member.name}'s profile, skills, education, experience and projects as ${member.role}.`,
-  };
+    description: `Explore ${member.name}'s verified skills, education, experience and projects as a ${member.role}.`,
+    path: `/team/${member.slug}`,
+    keywords: [member.name, member.role, ...member.skills.flatMap((group) => group.items).slice(0, 8)],
+  });
 }
 
 function ContactItem({ icon, label, href }: { icon: React.ReactNode; label: string; href?: string }) {
@@ -65,6 +69,21 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
 
   return (
     <>
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'ProfilePage',
+        mainEntity: {
+          '@type': 'Person',
+          name: member.name,
+          jobTitle: member.role,
+          description: member.summary,
+          image: `${siteUrl}${member.photo}`,
+          url: `${siteUrl}/team/${member.slug}`,
+          email: member.email ? `mailto:${member.email}` : undefined,
+          sameAs: [member.linkedin, member.github, member.portfolio].filter(Boolean),
+          knowsAbout: member.skills.flatMap((group) => group.items),
+        },
+      }} />
       <Box sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider' }}>
         <Container maxWidth="xl" sx={{ py: { xs: 4, md: 6 } }}>
           <Button component={Link} href="/team" variant="text" startIcon={<ArrowBackRoundedIcon />} sx={{ px: 0, mb: 3 }}><LocalizedText en="Back to Team" km="ត្រឡប់ទៅក្រុមការងារ" /></Button>

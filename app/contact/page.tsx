@@ -8,11 +8,9 @@ import { teamMembers } from '@/data/team';
 import { Reveal } from '@/components/Motion';
 import LocalizedText from '@/components/LocalizedText';
 import { khmerMemberNames } from '@/lib/i18n';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Connect with the PNC student technology team.',
-};
+export const metadata: Metadata = createPageMetadata({ title: 'Contact the PNC Student Team', description: 'Connect with the PNC student technology team in Phnom Penh, Cambodia, or contact an individual team member directly.', path: '/contact', keywords: ['contact PNC student team', 'Phnom Penh web developers'] });
 
 export default function ContactPage() {
   return (

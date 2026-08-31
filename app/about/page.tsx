@@ -9,11 +9,9 @@ import TrackChangesRoundedIcon from '@mui/icons-material/TrackChangesRounded';
 import SectionHeading from '@/components/SectionHeading';
 import { Reveal } from '@/components/Motion';
 import LocalizedText from '@/components/LocalizedText';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'About',
-  description: 'Learn about the PNC student technology team, our mission, values and practical learning approach.',
-};
+export const metadata: Metadata = createPageMetadata({ title: 'About the Team', description: 'Learn about the PNC student technology team, its mission, values and practical learning approach.', path: '/about', keywords: ['PNC student team mission', 'technology education Cambodia'] });
 
 const values = [
   ['Teamwork', 'We work across roles and help one another move the project forward.', GroupsRoundedIcon],
