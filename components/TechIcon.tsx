@@ -60,7 +60,8 @@ const iconMap: Record<string, { icon: IconType; color: string }> = {
 export function TechIcon({ name, size = 22 }: { name: string; size?: number }) {
   const theme = useTheme();
   const item = iconMap[name];
-  if (!item) {
+  // Keep static rendering safe even if a bundled icon export is unavailable.
+  if (!item || typeof item.icon !== 'function') {
     return <CodeRoundedIcon sx={{ fontSize: size, color: 'text.secondary' }} />;
   }
   const Icon = item.icon;
