@@ -21,7 +21,7 @@ export const khmerMemberNames: Record<string, string> = {
   'kin-doung': 'ដូង គីន',
   'sokchea-boy': 'ប៊យ សុខជា',
   'bunyoung-hean': 'ហ៊ាន ប៊ុនយ៉ុង',
-  'darin-hoy': 'ហូយ ដារិន',
+  'darin-hoy': 'ហូយ ដារីន',
   'leader-din': 'ឌិន លីដ័រ',
   'seang-meng-chheun': 'ឈឿន សៀងម៉េង',
 };
