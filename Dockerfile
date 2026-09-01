@@ -1,26 +1,26 @@
 # ===== Build Stage =====
-FROM node:22-alpine AS builder
+FROM node:20-alpine AS builder
+
 WORKDIR /app
+
 COPY package*.json ./
 RUN npm ci
+
 COPY . .
 RUN npm run build
 
 # ===== Production Stage =====
-FROM node:20-alpine AS runner
-WORKDIR /app
+FROM nginx:1.27-alpine
 
-ENV NODE_ENV=production
-ENV PORT=3000
-ENV HOSTNAME=0.0.0.0
+# Remove default nginx config
+RUN rm -rf /usr/share/nginx/html/* /etc/nginx/conf.d/default.conf
 
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
+# Copy static files
+COPY --from=builder /app/out /usr/share/nginx/html
 
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Copy your custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-USER nextjs
-EXPOSE 3000
-CMD ["node", "server.js"]
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

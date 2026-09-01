@@ -6,4 +6,4 @@ resources:
 
 images:
   - name: YOUR_DOCKERHUB_USERNAME/nextjs-app
-    newTag: latest          # ← GitHub Actions will automatically update this
+    newTag: latest         
