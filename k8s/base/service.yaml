@@ -5,10 +5,7 @@ metadata:
 spec:
   selector:
     app: nextjs-app
-
-  # cluster port
   ports:
     - port: 80
-      targetPort: 3000
-  # cluster type
+      targetPort: 80
   type: ClusterIP
